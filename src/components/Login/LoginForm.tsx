@@ -27,12 +27,12 @@ const LoginForm: React.FC<LoginProps> = ({ login, error }) => {
 
   return (
     <form
-      className="form d-flex flex-column col-10 col-sm-8 col-md-6 col-xl-4 rounded h-50 px-5 justify-content-center"
+      className="form d-flex flex-column col-10 col-sm-8 col-md-4 rounded h-50 px-5 justify-content-center"
       onSubmit={formik.handleSubmit}
     >
       <input
         autoComplete="off"
-        className={`input mx-4 ${formik.errors.email && "error-input"}`}
+        className={`input mx-2 ${formik.errors.email && "error-input"}`}
         id="email"
         placeholder="Enter your email"
         type="email"
@@ -44,7 +44,7 @@ const LoginForm: React.FC<LoginProps> = ({ login, error }) => {
       ) : null}
 
       <input
-        className={`input mt-2 mx-4 ${formik.errors.password && "error-input"}`}
+        className={`input mt-2 mx-2 ${formik.errors.password && "error-input"}`}
         id="password"
         placeholder="Enter your password"
         type="password"
