@@ -1,16 +1,22 @@
 import React from "react";
 import axios from "axios";
+import { useHistory } from "react-router";
+
 import SearchForm from "../../components/search/form/SearchForm";
 import Hero from "../../models/Hero";
 import HeroItemResult from "../../components/search/item/HeroItemResult";
+import { HeroContext } from "../../HeroContext";
 
 const apiKey = "10222145357517937";
 const baseUrl = "https://superheroapi.com/api/";
 const searchUrl = baseUrl + apiKey + "/search/";
 
 const SearchView: React.FC = () => {
+  const history = useHistory();
+
   const [heroName, setHeroName] = React.useState<string>("");
   const [result, setResult] = React.useState<Hero[] | null>(null);
+  const { setSelectedHero } = React.useContext(HeroContext);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,10 +33,8 @@ const SearchView: React.FC = () => {
   };
 
   const handleSelectedHero = (hero: Hero) => {
-    // eslint-disable-next-line no-console
-    console.log(hero);
-    /* setSelectedHero(hero);
-    history.push("/detail"); */
+    setSelectedHero(hero);
+    history.push("/detail");
   };
 
   return (
