@@ -27,6 +27,7 @@ const App: React.FC = () => {
           </Route>
 
           <Route path="/login">
+            {token && <Redirect to="/home" />}
             <LoginView />
           </Route>
 
