@@ -1,12 +1,43 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
+import LoginView from "./screens/LoginView";
+import Home from "./screens/home/HomeView";
 
-function App() {
+const App: React.FC = () => {
+  const token = localStorage.getItem("token");
+
+  /* if (!token) {
+    return (
+      <Router>
+        <div className="App">
+          <LoginView />
+        </div>
+      </Router>
+    );
+  } */
+
   return (
-    <div className="App">
-      <h1>Main</h1>
-    </div>
+    <Router>
+      <div className="App">
+        {!token && <Redirect to="/login" />}
+        <Switch>
+          <Route path="/home">
+            <Home />
+          </Route>
+
+          <Route path="/login">
+            {token && <Redirect to="/home" />}
+            <LoginView />
+          </Route>
+
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
