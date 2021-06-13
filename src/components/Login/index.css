@@ -1,0 +1,62 @@
+.form {
+  background-color: rgba(22, 21, 21, 0.4);
+  box-shadow: 1px 3px rgba(85, 83, 83, 0.6);
+}
+
+.input {
+  outline: none;
+  border: none;
+  color: white;
+  background-color: rgba(22, 21, 21, 0.6);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  border-radius: 1rem;
+}
+
+.input::placeholder {
+  color: rgba(245, 238, 238, 0.4);
+  font-size: 0.7rem;
+}
+
+.button {
+  border-radius: 12px;
+  background-color: aqua;
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  opacity: 0.5;
+  font-size: 0.7rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border: none;
+}
+
+.button:hover {
+  background-color: aquamarine;
+}
+
+.error-input {
+  border: 1px solid red;
+  margin-bottom: 0;
+}
+
+.error-text {
+  font-size: 0.9rem;
+  margin-top: 0;
+  font-weight: bolder;
+  text-align: left;
+  margin-left: 2rem;
+  color: rgb(216, 70, 70);
+}
+
+@media screen and (min-width: 480px) {
+  input::placeholder {
+    font-size: 1rem;
+  }
+
+  .button {
+    font-size: 1rem;
+  }
+}
