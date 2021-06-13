@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
 import LoginView from "./screens/LoginView";
+import SearchView from "./screens/search/SearchView";
 import Home from "./screens/home/HomeView";
 
 const App: React.FC = () => {
@@ -29,6 +30,10 @@ const App: React.FC = () => {
           <Route path="/login">
             {token && <Redirect to="/home" />}
             <LoginView />
+          </Route>
+
+          <Route path="/search">
+            <SearchView />
           </Route>
 
           <Route path="/">
