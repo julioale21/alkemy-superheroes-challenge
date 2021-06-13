@@ -1,0 +1,12 @@
+.appearance-item {
+  font-size: 0.8rem;
+}
+
+.appearance-item p {
+  margin-bottom: 0;
+}
+
+.appearance-item p span {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
