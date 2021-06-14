@@ -3,6 +3,7 @@ import "./index.css";
 import { HeroContext } from "../../HeroContext";
 import { useHistory } from "react-router-dom";
 import AddHeroCard from "../../components/home/AddHeroCard";
+import HeroCard from "../../components/Hero/HeroCard/HeroCard";
 
 interface Powerstats {
   [key: string]: number;
@@ -71,8 +72,6 @@ const HomeView: React.FC = () => {
         className="w-100 border d-flex flex-column align-items-center justify-content-around"
         style={{ height: "400px" }}
       >
-        <h1>My team</h1>
-
         <div className="row">
           {Object.keys(sortedArray).map((key) => (
             <div key={key} className="col-6 col-md-4">
@@ -87,14 +86,7 @@ const HomeView: React.FC = () => {
 
       <div className="row w-100 d-flex justify-content-center mt-2 mb-5">
         {heroes.map((hero) => (
-          <div key={hero.id} className="col-12 col-md-3 mt-5">
-            <div className="card">
-              <div className="mt-2">
-                <img alt="hero" height="250px" src={hero.image.url} />
-              </div>
-              <h5 className="mt-2">{hero.name}</h5>
-            </div>
-          </div>
+          <HeroCard key={hero.id} hero={hero} />
         ))}
 
         {heroes.length < 6 && <AddHeroCard onAddClick={() => handleAddClick()} />}
