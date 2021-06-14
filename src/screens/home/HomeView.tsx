@@ -56,6 +56,14 @@ const HomeView: React.FC = () => {
     return result;
   }, [heroes]);
 
+  const averageWeight = React.useMemo(() => {
+    const totalWeight = heroes.reduce((total, hero) => {
+      return total + Number(hero.appearance.weight[1].replace(" kg", ""));
+    }, 0);
+
+    return Number(totalWeight) / heroes.length;
+  }, [heroes]);
+
   const sortedArray = React.useMemo(() => {
     return Object.entries(powerstats)
       .sort(([, a], [, b]) => b - a)
@@ -65,6 +73,9 @@ const HomeView: React.FC = () => {
   const handleAddClick = () => {
     history.push("/search");
   };
+
+  // eslint-disable-next-line no-console
+  console.log(averageWeight);
 
   return (
     <div className="h-100 d-flex flex-column align-items-center ">
