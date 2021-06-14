@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css";
 import { HeroContext } from "../../HeroContext";
 import { useHistory } from "react-router-dom";
+import AddHeroCard from "../../components/home/AddHeroCard";
 
 interface Powerstats {
   [key: string]: number;
@@ -60,8 +61,9 @@ const HomeView: React.FC = () => {
       .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
   }, [powerstats]);
 
-  // eslint-disable-next-line no-console
-  console.log(powerstats.totalCombat);
+  const handleAddClick = () => {
+    history.push("/search");
+  };
 
   return (
     <div className="h-100 d-flex flex-column align-items-center ">
@@ -95,19 +97,7 @@ const HomeView: React.FC = () => {
           </div>
         ))}
 
-        {heroes.length < 6 && (
-          <div className="col-12 col-md-3 mt-5 mb-5" style={{ minHeight: "300px" }}>
-            <div className="card h-100 bg-light d-flex justify-content-center align-items-center">
-              <button className="buttonAdd" onClick={() => history.push("/search")}>
-                <img
-                  alt="add hero"
-                  src="https://icongr.am/fontawesome/plus-circle.svg?size=128&color=currentColor"
-                  width="50px"
-                />
-              </button>
-            </div>
-          </div>
-        )}
+        {heroes.length < 6 && <AddHeroCard onAddClick={() => handleAddClick()} />}
       </div>
     </div>
   );

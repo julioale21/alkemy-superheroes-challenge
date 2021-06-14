@@ -14,6 +14,24 @@ const HeroDetailView: React.FC = () => {
   const history = useHistory();
 
   const addHero = () => {
+    if (heroes.length >= 6) {
+      // eslint-disable-next-line no-console
+      console.log("To many heroes");
+
+      return;
+    }
+
+    const alignments = heroes.filter(
+      (hero) => hero.biography.alignment === selectedHero.biography.alignment,
+    );
+
+    if (alignments.length >= 3) {
+      // eslint-disable-next-line no-console
+      console.log("Alignment limit reached");
+
+      return;
+    }
+
     if (!heroes.includes(selectedHero)) {
       setHeroes([...heroes, selectedHero]);
       history.push("/home");
