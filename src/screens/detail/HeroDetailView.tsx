@@ -16,7 +16,7 @@ const HeroDetailView: React.FC = () => {
   const addHero = () => {
     if (!heroes.includes(selectedHero)) {
       setHeroes([...heroes, selectedHero]);
-      history.push("/team");
+      history.push("/home");
     }
   };
 
