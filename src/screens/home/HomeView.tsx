@@ -4,6 +4,7 @@ import { HeroContext } from "../../HeroContext";
 import { useHistory } from "react-router-dom";
 import AddHeroCard from "../../components/home/AddHeroCard";
 import HeroCard from "../../components/Hero/HeroCard/HeroCard";
+import CountUp from "react-countup";
 
 interface Powerstats {
   [key: string]: number;
@@ -103,7 +104,8 @@ const HomeView: React.FC = () => {
               <h4>
                 <span>{key.toUpperCase()}</span>
               </h4>
-              <p>{powerstats[key]}</p>
+              {/* <p>{powerstats[key]}</p> */}
+              <CountUp duration={1} end={powerstats[key]} start={0} />
             </div>
           ))}
         </div>

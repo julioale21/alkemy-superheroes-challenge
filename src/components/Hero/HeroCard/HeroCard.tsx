@@ -1,6 +1,5 @@
 import React from "react";
 import Hero from "../../../models/Hero";
-import "./index.css";
 
 interface HeroCardProps {
   hero: Hero;
