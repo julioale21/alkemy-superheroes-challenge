@@ -110,11 +110,11 @@ const HomeView: React.FC = () => {
           ))}
         </div>
         <div className="averages w-100 d-flex flex-row justify-content-around">
-          <div>
+          <div data-aos="fade-up">
             <h3>Weight</h3>
             <p>{averageWeight.toFixed(2)} Kg</p>
           </div>
-          <div>
+          <div data-aos="fade-up">
             <h3>Height</h3>
             <p>{averageHeight.toFixed(2)} cm</p>
           </div>

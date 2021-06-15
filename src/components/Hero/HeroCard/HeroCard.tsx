@@ -7,7 +7,7 @@ interface HeroCardProps {
 
 const HeroCard: React.FC<HeroCardProps> = ({ hero }) => {
   return (
-    <div className="col-12 col-sm-6 col-md-3 mt-5">
+    <div className="col-12 col-sm-6 col-md-3 mt-5" data-aos="fade-up">
       <div style={{ backgroundColor: "rgba(0, 0, 0, 0.9)" }}>
         <div className="mt-2 p-1">
           <img alt="hero" src={hero.image.url} width="100%" />
