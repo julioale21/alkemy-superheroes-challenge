@@ -1,8 +1,12 @@
 .App {
   text-align: center;
-  height: 100vh;
+  height: 100%;
 }
 
 .text-sm {
   font-size: 0.8rem;
+}
+
+.bg-black {
+  background-color: black;
 }
