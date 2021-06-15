@@ -74,15 +74,29 @@ const HomeView: React.FC = () => {
     history.push("/search");
   };
 
-  // eslint-disable-next-line no-console
-  console.log(averageWeight);
+  const averageHeight = React.useMemo(() => {
+    const totalHeight = heroes.reduce((total, hero) => {
+      let height =
+        hero.appearance.height[1].includes("cm") &&
+        Number(hero.appearance.height[1].replace(" cm", ""));
+
+      height =
+        hero.appearance.height[1].includes("meters") &&
+        Number(hero.appearance.height[1].replace(" meters", "")) * 100;
+
+      return total + Number(height);
+    }, 0);
+
+    return Number(totalHeight) / heroes.length;
+  }, [heroes]);
 
   return (
-    <div className="h-100 d-flex flex-column align-items-center ">
+    <div className="bg-danger h-100 d-flex flex-column align-items-center">
       <div
-        className="w-100 border d-flex flex-column align-items-center justify-content-around"
+        className="w-100 border d-flex flex-column align-items-center justify-content-around text-white"
         style={{ height: "400px" }}
       >
+        <h2 className="text-uppercase fw-bold">Powerstats</h2>
         <div className="row">
           {Object.keys(sortedArray).map((key) => (
             <div key={key} className="col-6 col-md-4">
@@ -92,6 +106,16 @@ const HomeView: React.FC = () => {
               <p>{powerstats[key]}</p>
             </div>
           ))}
+        </div>
+        <div className="averages w-100 d-flex flex-row justify-content-around">
+          <div>
+            <h3>Weight</h3>
+            <p>{averageWeight.toFixed(2)} Kg</p>
+          </div>
+          <div>
+            <h3>Height</h3>
+            <p>{averageHeight.toFixed(2)} cm</p>
+          </div>
         </div>
       </div>
 
