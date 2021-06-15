@@ -11,7 +11,7 @@ const AppearanceItem: React.FC<AppearanceItemProps> = ({ name, value }) => {
     <div className="appearance-item col-6 col-sm-4">
       <p>
         <span>{name}:</span>
-        {value.toString()}
+        {value.length ? value[1] : value}
       </p>
     </div>
   );
