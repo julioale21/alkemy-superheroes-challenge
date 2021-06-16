@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 import "./App.css";
 import LoginView from "./screens/LoginView";
 import SearchView from "./screens/SearchView";
-import Home from "./screens/HomeView";
+import Home from "./screens/home/HomeView";
 import { HeroContext } from "./HeroContext";
 import Hero from "./models/Hero";
 import HeroDetailView from "./screens/HeroDetailView";

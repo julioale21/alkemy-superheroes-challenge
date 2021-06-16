@@ -1,11 +1,12 @@
 import React from "react";
-import { HeroContext } from "../HeroContext";
+import { HeroContext } from "../../HeroContext";
 import { useHistory } from "react-router-dom";
-import AddHeroCard from "../components/home/AddHeroCard";
-import HeroCard from "../components/Hero/HeroCard";
-import usePowerStats from "../components/Hero/usePowerStats";
-import Hero from "../models/Hero";
-import PowerStatCounter from "../components/home/PowerStatCounter";
+import AddHeroCard from "../../components/home/AddHeroCard";
+import HeroCard from "../../components/Hero/HeroCard";
+import usePowerStats from "../../components/Hero/usePowerStats";
+import Hero from "../../models/Hero";
+import PowerStatCounter from "../../components/home/PowerStatCounter";
+import "./index.css";
 
 const HomeView: React.FC = () => {
   const { heroes, setHeroes, setSelectedHero } = React.useContext(HeroContext);
@@ -47,8 +48,8 @@ const HomeView: React.FC = () => {
         </div>
       </div>
 
-      <div className="h-100 w-100 min-vh-100 bg-black">
-        <div className="row w-100 d-flex justify-content-center">
+      <div className="my-team-section h-100 w-100 min-vh-100 bg-black">
+        <div className="row w-100 mx-auto d-flex justify-content-center ">
           {heroes.map((hero) => (
             <HeroCard
               key={hero.id}

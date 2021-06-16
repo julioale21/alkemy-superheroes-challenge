@@ -16,13 +16,6 @@
   background-color: blue;
 }
 
-.powerstats-sections {
-  background-image: url("./assets/bg-dark.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 45%;
-}
-
 .opacity-50 {
   opacity: 50%;
 }
