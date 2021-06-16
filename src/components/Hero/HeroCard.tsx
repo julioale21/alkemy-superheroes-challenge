@@ -19,14 +19,10 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero, onHeroSelected, onRemoveSelec
         <p className="text-white text-sm">Alignment: {hero.biography.alignment}</p>
 
         <div className="d-grid gap-1 col-11 mx-auto pb-3">
-          <button className="btn btn-primary btn-sm" type="button" onClick={() => onHeroSelected()}>
+          <button className="btn btn-primary btn-sm" type="button" onClick={onHeroSelected}>
             View Detail
           </button>
-          <button
-            className="btn btn-danger btn-sm"
-            type="button"
-            onClick={() => onRemoveSelected()}
-          >
+          <button className="btn btn-danger btn-sm" type="button" onClick={onRemoveSelected}>
             Delete
           </button>
         </div>
