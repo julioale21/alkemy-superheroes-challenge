@@ -8,7 +8,7 @@ import usePowerStats from "../components/Hero/usePowerStats";
 import Hero from "../models/Hero";
 
 const HomeView: React.FC = () => {
-  const { heroes, setSelectedHero } = React.useContext(HeroContext);
+  const { heroes, setHeroes, setSelectedHero } = React.useContext(HeroContext);
   const history = useHistory();
 
   const { powerstats, averageWeight, averageHeight, sortedArray } = usePowerStats(heroes);
@@ -20,6 +20,10 @@ const HomeView: React.FC = () => {
   const handleSelectedHero = (hero: Hero) => {
     setSelectedHero(hero);
     history.push("/detail");
+  };
+
+  const handleRemoveHero = (hero: Hero) => {
+    setHeroes(heroes.filter((item) => item.id !== hero.id));
   };
 
   return (
@@ -59,7 +63,12 @@ const HomeView: React.FC = () => {
 
       <div className="row w-100 d-flex justify-content-center mt-2 mb-5">
         {heroes.map((hero) => (
-          <HeroCard key={hero.id} hero={hero} onHeroSelected={() => handleSelectedHero(hero)} />
+          <HeroCard
+            key={hero.id}
+            hero={hero}
+            onHeroSelected={() => handleSelectedHero(hero)}
+            onRemoveSelected={() => handleRemoveHero(hero)}
+          />
         ))}
 
         {heroes.length < 6 && <AddHeroCard onAddClick={() => handleAddClick()} />}
