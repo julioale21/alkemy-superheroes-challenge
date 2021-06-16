@@ -3,9 +3,9 @@ import { HeroContext } from "../HeroContext";
 import { useHistory } from "react-router-dom";
 import AddHeroCard from "../components/home/AddHeroCard";
 import HeroCard from "../components/Hero/HeroCard";
-import CountUp from "react-countup";
 import usePowerStats from "../components/Hero/usePowerStats";
 import Hero from "../models/Hero";
+import PowerStatCounter from "../components/home/PowerStatCounter";
 
 const HomeView: React.FC = () => {
   const { heroes, setHeroes, setSelectedHero } = React.useContext(HeroContext);
@@ -27,26 +27,12 @@ const HomeView: React.FC = () => {
   };
 
   return (
-    <div className="bg-danger h-100 min-vh-100 d-flex flex-column align-items-center">
-      <div
-        className="w-100 border d-flex flex-column align-items-center justify-content-around text-white"
-        style={{ height: "400px" }}
-      >
+    <div className="h-100 d-flex flex-column align-items-center">
+      <div className="powerstats-sections w-100 min-vh-100 d-flex flex-column align-items-center justify-content-around text-white">
         <h2 className="text-uppercase fw-bold">Powerstats</h2>
         <div className="row w-100">
           {Object.keys(sortedArray).map((key) => (
-            <div key={key} className="col-6 col-md-4">
-              <h6>
-                <span>{key.toUpperCase()}</span>
-              </h6>
-              <CountUp delay={0} end={powerstats[key]} start={0}>
-                {({ countUpRef }) => (
-                  <div>
-                    <span ref={countUpRef} className="fs-1" />
-                  </div>
-                )}
-              </CountUp>
-            </div>
+            <PowerStatCounter key={key} name={key} value={powerstats[key]} />
           ))}
         </div>
         <div className="averages w-100 d-flex flex-row justify-content-around">
@@ -61,17 +47,19 @@ const HomeView: React.FC = () => {
         </div>
       </div>
 
-      <div className="row w-100 d-flex justify-content-center mt-2 mb-5">
-        {heroes.map((hero) => (
-          <HeroCard
-            key={hero.id}
-            hero={hero}
-            onHeroSelected={() => handleSelectedHero(hero)}
-            onRemoveSelected={() => handleRemoveHero(hero)}
-          />
-        ))}
+      <div className="h-100 w-100 min-vh-100 bg-black">
+        <div className="row w-100 d-flex justify-content-center">
+          {heroes.map((hero) => (
+            <HeroCard
+              key={hero.id}
+              hero={hero}
+              onHeroSelected={() => handleSelectedHero(hero)}
+              onRemoveSelected={() => handleRemoveHero(hero)}
+            />
+          ))}
 
-        {heroes.length < 6 && <AddHeroCard onAddClick={() => handleAddClick()} />}
+          {heroes.length < 6 && <AddHeroCard onAddClick={handleAddClick} />}
+        </div>
       </div>
     </div>
   );
