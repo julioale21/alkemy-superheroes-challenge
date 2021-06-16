@@ -16,6 +16,13 @@
   background-color: blue;
 }
 
+.powerstats-sections {
+  background-image: url("./assets/bg-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 45%;
+}
+
 .opacity-50 {
   opacity: 50%;
 }
@@ -36,8 +43,27 @@
   width: 90%;
 }
 
+.w-circle {
+  width: 50% !important;
+}
+
 @media screen and (min-width:  768px) {
+  .w-circle {
+    width: 50% !important;
+  }
   .md-w-40 {
     width: 40%;
+  }
+}
+
+@media screen and (min-width:  978px) {
+  .w-circle {
+    width: 35% !important;
+  }
+}
+
+@media screen and (min-width:  1200px) {
+  .w-circle {
+    width: 25% !important;
   }
 }
