@@ -29,8 +29,12 @@ const LoginView: React.FC = () => {
 
   return (
     <div
-      className="h-100 d-flex justify-content-center align-items-center"
-      style={{ backgroundImage: `url(${backgroundImg})`, backgroundSize: "contain" }}
+      className="d-flex justify-content-center align-items-center"
+      style={{
+        backgroundImage: `url(${backgroundImg})`,
+        backgroundSize: "contain",
+        height: "100vh",
+      }}
     >
       <LoginForm error={error} login={loginUser} />
     </div>

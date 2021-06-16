@@ -58,15 +58,15 @@ const usePowerStats = (heroes: Hero[]) => {
 
   const averageHeight = useMemo(() => {
     const totalHeight = heroes.reduce((total, hero) => {
-      let height =
-        hero.appearance.height[1].includes("cm") &&
-        Number(hero.appearance.height[1].replace(" cm", ""));
+      let height = hero.appearance.height[1].replace(" cm", "");
 
-      height =
-        hero.appearance.height[1].includes("meters") &&
-        Number(hero.appearance.height[1].replace(" meters", "")) * 100;
+      height = height.replace(" meters", "");
 
-      return total + Number(height);
+      const heightValue: number = hero.appearance.height[1].includes("cm")
+        ? Number(height)
+        : Number(height) * 100;
+
+      return total + heightValue;
     }, 0);
 
     return Number(totalHeight) / heroes.length;
