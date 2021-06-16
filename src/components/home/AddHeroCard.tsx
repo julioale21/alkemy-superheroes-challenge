@@ -6,12 +6,16 @@ interface CardProps {
 
 const AddHeroCard: React.FC<CardProps> = ({ onAddClick }) => {
   return (
-    <div className="col-12 col-md-3 mt-5 mb-5" style={{ minHeight: "300px" }}>
-      <div className="card h-100 bg-light d-flex justify-content-center align-items-center">
-        <button className="buttonAdd" onClick={() => onAddClick()}>
+    <div
+      className="col-8 col-sm-6 col-md-3 col-xl-2 mt-5 p-1 mb-5 mb-sm-0"
+      data-aos="fade-up"
+      style={{ minHeight: "300px" }}
+    >
+      <div className="h-100 gb-transparent border d-flex justify-content-center align-items-center mt-1 me-2">
+        <button className="buttonAdd bg-transparent border-0" onClick={onAddClick}>
           <img
             alt="add hero"
-            src="https://icongr.am/fontawesome/plus-circle.svg?size=128&color=currentColor"
+            src="https://icongr.am/fontawesome/plus-circle.svg?size=128&color=ffffff"
             width="50px"
           />
         </button>

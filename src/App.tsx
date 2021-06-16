@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
-import LoginView from "./screens/login/LoginView";
-import SearchView from "./screens/search/SearchView";
+import LoginView from "./screens/LoginView";
+import SearchView from "./screens/SearchView";
 import Home from "./screens/home/HomeView";
 import { HeroContext } from "./HeroContext";
 import Hero from "./models/Hero";
-import HeroDetailView from "./screens/detail/HeroDetailView";
+import HeroDetailView from "./screens/HeroDetailView";
 
 const initialState = JSON.parse(localStorage.getItem("heroes") || "[]");
 

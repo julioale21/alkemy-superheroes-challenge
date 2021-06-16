@@ -1,6 +1,6 @@
 import React from "react";
-import Appearance from "../../../models/Appearance";
-import AppearanceItem from "../AppearanceItem";
+import Appearance from "../../models/Appearance";
+import AppearanceItem from "./AppearanceItem";
 
 interface AppearanceProps {
   appearance: Appearance;

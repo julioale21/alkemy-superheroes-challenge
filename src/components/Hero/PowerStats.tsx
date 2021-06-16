@@ -1,6 +1,6 @@
 import React from "react";
-import Powerstats from "../../../models/Popwerstats";
-import PowerStatItem from "../PowerStatItem";
+import Powerstats from "../../models/Popwerstats";
+import PowerStatItem from "./PowerStatItem";
 
 interface PowerStatListProps {
   powerstats: Powerstats;

@@ -1,5 +1,4 @@
 import React from "react";
-import "./index.css";
 
 interface AppearanceItemProps {
   name: string;
@@ -8,10 +7,10 @@ interface AppearanceItemProps {
 
 const AppearanceItem: React.FC<AppearanceItemProps> = ({ name, value }) => {
   return (
-    <div className="appearance-item col-6 col-sm-4">
-      <p>
-        <span>{name}:</span>
-        {value.toString()}
+    <div className="col-6 col-sm-4">
+      <p className="text-sm mb-0">
+        <span className="fw-bold me-1">{name}:</span>
+        {value.length ? value[1] : value}
       </p>
     </div>
   );

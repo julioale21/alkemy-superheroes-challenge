@@ -1,6 +1,6 @@
 import React from "react";
-import Work from "../../../models/Work";
-import WorkItem from "../WorkItem";
+import Work from "../../models/Work";
+import WorkItem from "./WorkItem";
 
 interface WorkProps {
   work: Work;

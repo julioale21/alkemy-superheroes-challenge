@@ -6,11 +6,14 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@types/aos": "^3.0.3",
     "@types/react-router-dom": "^5.1.7",
+    "aos": "^2.3.4",
     "axios": "^0.21.1",
     "bootstrap": "^5.0.1",
     "formik": "^2.2.9",
     "react": "^17.0.0",
+    "react-countup": "^4.3.3",
     "react-dom": "^17.0.0",
     "react-router-dom": "^5.2.0",
     "yup": "^0.32.9"

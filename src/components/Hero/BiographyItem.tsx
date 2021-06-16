@@ -1,5 +1,4 @@
 import React from "react";
-import "./index.css";
 
 interface BiographyItemProps {
   name: string;
@@ -8,9 +7,9 @@ interface BiographyItemProps {
 
 const BiographyItem: React.FC<BiographyItemProps> = ({ name, value }) => {
   return (
-    <div className="biography-item">
-      <p className="text-start">
-        <span>{name}:</span>
+    <div className="p-0">
+      <p className="text-start text-sm text-capitalize">
+        <span className="fw-bold me-1">{name}:</span>
         {value}
       </p>
     </div>

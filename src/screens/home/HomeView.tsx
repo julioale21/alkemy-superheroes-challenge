@@ -1,106 +1,66 @@
 import React from "react";
-import "./index.css";
 import { HeroContext } from "../../HeroContext";
 import { useHistory } from "react-router-dom";
 import AddHeroCard from "../../components/home/AddHeroCard";
-import HeroCard from "../../components/Hero/HeroCard/HeroCard";
-
-interface Powerstats {
-  [key: string]: number;
-  durability: number;
-  combat: number;
-  intelligence: number;
-  power: number;
-  speed: number;
-  strength: number;
-}
+import HeroCard from "../../components/Hero/HeroCard";
+import usePowerStats from "../../components/Hero/usePowerStats";
+import Hero from "../../models/Hero";
+import PowerStatCounter from "../../components/home/PowerStatCounter";
+import "./index.css";
 
 const HomeView: React.FC = () => {
-  const { heroes } = React.useContext(HeroContext);
+  const { heroes, setHeroes, setSelectedHero } = React.useContext(HeroContext);
   const history = useHistory();
 
-  const powerstats = React.useMemo(() => {
-    const totalCombat = heroes.reduce((total, hero) => {
-      return total + Number(hero.powerstats.combat);
-    }, 0);
-
-    const totalDurability = heroes.reduce((total, hero) => {
-      return total + Number(hero.powerstats.durability);
-    }, 0);
-
-    const totalIntelligence = heroes.reduce((total, hero) => {
-      return total + Number(hero.powerstats.intelligence);
-    }, 0);
-
-    const totalPower = heroes.reduce((total, hero) => {
-      return total + Number(hero.powerstats.power);
-    }, 0);
-
-    const totalSpeed = heroes.reduce((total, hero) => {
-      return total + Number(hero.powerstats.speed);
-    }, 0);
-
-    const totalStrength = heroes.reduce((total, hero) => {
-      return total + Number(hero.powerstats.strength);
-    }, 0);
-
-    const result: Powerstats = {
-      combat: totalCombat,
-      durability: totalDurability,
-      intelligence: totalIntelligence,
-      power: totalPower,
-      speed: totalSpeed,
-      strength: totalStrength,
-    };
-
-    return result;
-  }, [heroes]);
-
-  const averageWeight = React.useMemo(() => {
-    const totalWeight = heroes.reduce((total, hero) => {
-      return total + Number(hero.appearance.weight[1].replace(" kg", ""));
-    }, 0);
-
-    return Number(totalWeight) / heroes.length;
-  }, [heroes]);
-
-  const sortedArray = React.useMemo(() => {
-    return Object.entries(powerstats)
-      .sort(([, a], [, b]) => b - a)
-      .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
-  }, [powerstats]);
+  const { powerstats, averageWeight, averageHeight, sortedArray } = usePowerStats(heroes);
 
   const handleAddClick = () => {
     history.push("/search");
   };
 
-  // eslint-disable-next-line no-console
-  console.log(averageWeight);
+  const handleSelectedHero = (hero: Hero) => {
+    setSelectedHero(hero);
+    history.push("/detail");
+  };
+
+  const handleRemoveHero = (hero: Hero) => {
+    setHeroes(heroes.filter((item) => item.id !== hero.id));
+  };
 
   return (
-    <div className="h-100 d-flex flex-column align-items-center ">
-      <div
-        className="w-100 border d-flex flex-column align-items-center justify-content-around"
-        style={{ height: "400px" }}
-      >
-        <div className="row">
+    <div className="h-100 d-flex flex-column align-items-center">
+      <div className="powerstats-sections w-100 min-vh-100 d-flex flex-column align-items-center justify-content-around text-white">
+        <h2 className="text-uppercase fw-bold">Powerstats</h2>
+        <div className="row w-100">
           {Object.keys(sortedArray).map((key) => (
-            <div key={key} className="col-6 col-md-4">
-              <h4>
-                <span>{key.toUpperCase()}</span>
-              </h4>
-              <p>{powerstats[key]}</p>
-            </div>
+            <PowerStatCounter key={key} name={key} value={powerstats[key]} />
           ))}
+        </div>
+        <div className="averages w-100 d-flex flex-row justify-content-around">
+          <div data-aos="fade-up">
+            <h3>Weight</h3>
+            <p>{averageWeight.toFixed(2)} Kg</p>
+          </div>
+          <div data-aos="fade-up">
+            <h3>Height</h3>
+            <p>{averageHeight.toFixed(2)} cm</p>
+          </div>
         </div>
       </div>
 
-      <div className="row w-100 d-flex justify-content-center mt-2 mb-5">
-        {heroes.map((hero) => (
-          <HeroCard key={hero.id} hero={hero} />
-        ))}
+      <div className="my-team-section h-100 w-100 min-vh-100 bg-black">
+        <div className="row w-100 mx-auto d-flex justify-content-center ">
+          {heroes.map((hero) => (
+            <HeroCard
+              key={hero.id}
+              hero={hero}
+              onHeroSelected={() => handleSelectedHero(hero)}
+              onRemoveSelected={() => handleRemoveHero(hero)}
+            />
+          ))}
 
-        {heroes.length < 6 && <AddHeroCard onAddClick={() => handleAddClick()} />}
+          {heroes.length < 6 && <AddHeroCard onAddClick={handleAddClick} />}
+        </div>
       </div>
     </div>
   );

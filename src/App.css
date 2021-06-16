@@ -1,8 +1,62 @@
 .App {
   text-align: center;
-  height: 100vh;
+  height: 100%;
+  min-height: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+.opacity-50 {
+  opacity: 50%;
+}
+
+.shadow-black {
+  text-shadow: 1px 1px black;
 }
 
 .text-sm {
   font-size: 0.8rem;
+}
+
+.text-red {
+  color: red;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.w-circle {
+  width: 50% !important;
+}
+
+@media screen and (min-width:  768px) {
+  .w-circle {
+    width: 50% !important;
+  }
+  .md-w-40 {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width:  978px) {
+  .w-circle {
+    width: 35% !important;
+  }
+}
+
+@media screen and (min-width:  1200px) {
+  .w-circle {
+    width: 25% !important;
+  }
 }

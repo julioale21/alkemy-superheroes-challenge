@@ -1,6 +1,6 @@
 import React from "react";
-import Biography from "../../../models/Biography";
-import BiographyItem from "../BiographyItem";
+import Biography from "../../models/Biography";
+import BiographyItem from "../Hero/BiographyItem";
 
 interface BiographyProps {
   bio: Biography;
