@@ -1,5 +1,5 @@
 import React from "react";
-import Connections from "../../../models/Connections";
+import Connections from "../../models/Connections";
 
 interface ConnectionsProps {
   connections: Connections;

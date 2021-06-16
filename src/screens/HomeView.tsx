@@ -1,12 +1,11 @@
 import React from "react";
-import "./index.css";
-import { HeroContext } from "../../HeroContext";
+import { HeroContext } from "../HeroContext";
 import { useHistory } from "react-router-dom";
-import AddHeroCard from "../../components/home/AddHeroCard";
-import HeroCard from "../../components/Hero/HeroCard/HeroCard";
+import AddHeroCard from "../components/home/AddHeroCard";
+import HeroCard from "../components/Hero/HeroCard";
 import CountUp from "react-countup";
-import usePowerStats from "../../components/Hero/PowerStats/usePowerStats";
-import Hero from "../../models/Hero";
+import usePowerStats from "../components/Hero/usePowerStats";
+import Hero from "../models/Hero";
 
 const HomeView: React.FC = () => {
   const { heroes, setSelectedHero } = React.useContext(HeroContext);
@@ -24,7 +23,7 @@ const HomeView: React.FC = () => {
   };
 
   return (
-    <div className="bg-danger h-100 d-flex flex-column align-items-center">
+    <div className="bg-danger h-100 min-vh-100 d-flex flex-column align-items-center">
       <div
         className="w-100 border d-flex flex-column align-items-center justify-content-around text-white"
         style={{ height: "400px" }}

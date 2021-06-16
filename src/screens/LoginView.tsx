@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import LoginForm from "../../components/Login/LoginForm";
+import LoginForm from "../components/Login/LoginForm";
 import axios from "axios";
-import backgroundImg from "../../assets/super-background.jpg";
+import backgroundImg from "../assets/super-background.jpg";
 import { useHistory } from "react-router-dom";
 
 const LoginView: React.FC = () => {
@@ -29,7 +29,7 @@ const LoginView: React.FC = () => {
 
   return (
     <div
-      className="d-flex justify-content-center align-items-center"
+      className="mh-100 d-flex justify-content-center align-items-center"
       style={{
         backgroundImage: `url(${backgroundImg})`,
         backgroundSize: "contain",

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import Powerstats from "./PowerStatsInterface";
-import Hero from "../../../models/Hero";
+import Hero from "../../models/Hero";
 
 const usePowerStats = (heroes: Hero[]) => {
   //const { heroes } = useContext(HeroContext);
