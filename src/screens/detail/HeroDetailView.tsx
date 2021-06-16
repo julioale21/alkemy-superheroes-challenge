@@ -7,11 +7,16 @@ import Connections from "../../components/Hero/Connections";
 import PowerStats from "../../components/Hero/PowerStats";
 import Work from "../../components/Hero/Work";
 import { HeroContext } from "../../HeroContext";
+import Hero from "../../models/Hero";
 import "./index.css";
 
 const HeroDetailView: React.FC = () => {
   const { selectedHero, heroes, setHeroes } = React.useContext(HeroContext);
   const history = useHistory();
+
+  const exists = (hero: Hero): Boolean => {
+    return heroes.findIndex((item) => item.id === hero.id) !== -1;
+  };
 
   const addHero = () => {
     if (heroes.length >= 6) {
@@ -32,7 +37,7 @@ const HeroDetailView: React.FC = () => {
       return;
     }
 
-    if (!heroes.includes(selectedHero)) {
+    if (!exists(selectedHero)) {
       setHeroes([...heroes, selectedHero]);
       history.push("/home");
     }
@@ -57,9 +62,11 @@ const HeroDetailView: React.FC = () => {
             <Work work={selectedHero.work} />
             <hr />
             <Connections connections={selectedHero.connections} />
-            <button className="btnAdd" onClick={() => addHero()}>
-              Add to my team
-            </button>
+            {!exists(selectedHero) ? (
+              <button className="btnAdd" onClick={() => addHero()}>
+                Add to my team
+              </button>
+            ) : null}
           </div>
         </div>
       ) : (
