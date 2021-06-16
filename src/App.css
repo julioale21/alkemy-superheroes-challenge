@@ -4,8 +4,8 @@
   min-height: 100%;
 }
 
-.text-sm {
-  font-size: 0.8rem;
+.cursor-pointer {
+  cursor: pointer !important;
 }
 
 .bg-black {
@@ -22,6 +22,10 @@
 
 .shadow-black {
   text-shadow: 1px 1px black;
+}
+
+.text-sm {
+  font-size: 0.8rem;
 }
 
 .text-red {
