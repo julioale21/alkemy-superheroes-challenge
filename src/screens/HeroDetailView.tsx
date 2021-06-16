@@ -64,7 +64,7 @@ const HeroDetailView: React.FC = () => {
             {!exists(selectedHero) ? (
               <button
                 className="w-90 border-0 text-white rounded bg-blue mt-5 mx-auto py-2 opacity-50"
-                onClick={() => addHero()}
+                onClick={addHero}
               >
                 Add to my team
               </button>

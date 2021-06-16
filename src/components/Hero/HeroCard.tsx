@@ -10,9 +10,9 @@ interface HeroCardProps {
 const HeroCard: React.FC<HeroCardProps> = ({ hero, onHeroSelected, onRemoveSelected }) => {
   return (
     <div className="col-12 col-sm-6 col-md-3 col-xl-2 mt-5" data-aos="fade-up">
-      <div style={{ backgroundColor: "rgba(0, 0, 0, 0.9)" }}>
-        <div className="mt-2 p-1">
-          <img alt="hero" src={hero.image.url} width="100%" />
+      <div style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}>
+        <div className="mt-2 p-2">
+          <img alt="hero" className="rounded-2" src={hero.image.url} width="100%" />
         </div>
 
         <h4 className="mt-2 text-white pb-2">{hero.name}</h4>
