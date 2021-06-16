@@ -2,9 +2,9 @@ import React from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 
-import SearchForm from "../components/search/form/SearchForm";
+import SearchForm from "../components/search/SearchForm";
 import Hero from "../models/Hero";
-import HeroItemResult from "../components/search/item/HeroItemResult";
+import HeroItemResult from "../components/search/HeroItemResult";
 import { HeroContext } from "../HeroContext";
 
 const apiKey = "10222145357517937";
