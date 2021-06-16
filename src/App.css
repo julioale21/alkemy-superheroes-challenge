@@ -11,3 +11,29 @@
 .bg-black {
   background-color: black;
 }
+
+.bg-blue {
+  background-color: blue;
+}
+
+.opacity-50 {
+  opacity: 50%;
+}
+
+.shadow-black {
+  text-shadow: 1px 1px black;
+}
+
+.text-red {
+  color: red;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+@media screen and (min-width:  768px) {
+  .md-w-40 {
+    width: 40%;
+  }
+}
