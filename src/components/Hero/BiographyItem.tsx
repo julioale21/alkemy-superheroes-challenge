@@ -10,7 +10,7 @@ const BiographyItem: React.FC<BiographyItemProps> = ({ name, value }) => {
     <div className="p-0">
       <p className="text-start text-sm text-capitalize">
         <span className="fw-bold me-1">{name}:</span>
-        {value}
+        {value.toString()}
       </p>
     </div>
   );
