@@ -5,7 +5,7 @@ import "./index.css";
 
 interface LoginProps {
   login: (email: string, password: string) => void;
-  error: string | null;
+  error?: string | null;
 }
 
 const LoginForm: React.FC<LoginProps> = ({ login, error }) => {
