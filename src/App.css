@@ -22,8 +22,7 @@
 }
 
 .img-detail {
-  height: 100%;
-  width: 40%;
+  max-height: 300px;
   margin-top: 1rem;
 }
 
@@ -39,6 +38,10 @@
   font-size: 0.8rem;
 }
 
+.text-xs {
+  font-size: 0.7rem;
+}
+
 .text-normal {
   font-size: 1rem;
 }
@@ -51,33 +54,14 @@
   width: 90%;
 }
 
-.w-circle {
-  width: 50% !important;
-}
 
 @media screen and (min-width:  768px) {
-  .img-detail {
-    height: 100%;
-    width: auto;
-    max-width: 100%;
-    margin-top: 0;
-  }
-  .w-circle {
-    width: 50% !important;
+  .card-detail {
+    width: 50%;
+    height: 90%;
   }
   .md-w-40 {
     width: 40%;
   }
 }
 
-@media screen and (min-width:  978px) {
-  .w-circle {
-    width: 35% !important;
-  }
-}
-
-@media screen and (min-width:  1200px) {
-  .w-circle {
-    width: 25% !important;
-  }
-}
