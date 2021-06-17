@@ -18,7 +18,7 @@ const PowerStatCounter: React.FC<PowerProps> = ({ name, value }) => {
           <div>
             <span
               ref={countUpRef}
-              className="fs-1 text-red fw-bolder"
+              className="fs-1 text-warning fw-bolder"
               style={{ textShadow: "3px 3px 2px white" }}
             />
           </div>
