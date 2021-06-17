@@ -16,6 +16,17 @@
   background-color: blue;
 }
 
+.card-detail {
+  width: 90%;
+  height: 90%;
+}
+
+.img-detail {
+  height: 100%;
+  width: 40%;
+  margin-top: 1rem;
+}
+
 .opacity-50 {
   opacity: 50%;
 }
@@ -26,6 +37,10 @@
 
 .text-sm {
   font-size: 0.8rem;
+}
+
+.text-normal {
+  font-size: 1rem;
 }
 
 .text-red {
@@ -41,6 +56,12 @@
 }
 
 @media screen and (min-width:  768px) {
+  .img-detail {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    margin-top: 0;
+  }
   .w-circle {
     width: 50% !important;
   }
