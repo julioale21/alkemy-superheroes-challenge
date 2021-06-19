@@ -24,10 +24,21 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero, onHeroSelected, onRemoveSelec
           <div className="row px-2">
             {Object.keys(hero.powerstats).map((key) => (
               <div key={key} className="col-6">
-                <p className="text-xs fw-bold text-capitalize text-white shadow-black m-0 p-0">
+                <div className="progress" style={{ backgroundColor: "#FDFFBC" }}>
+                  <div
+                    aria-valuemax={100}
+                    aria-valuemin={0}
+                    aria-valuenow={hero.powerstats[key]}
+                    className="progress-bar"
+                    role="progressbar"
+                    style={{ width: `${hero.powerstats[key]}%`, backgroundColor: "#f2992d" }}
+                  >
+                    <span className="text-black fw-bolder">{hero.powerstats[key]}</span>
+                  </div>
+                </div>
+                <p className="text-xs fw-bold text-capitalize text-white shadow-black m-0 p-0 mb-2">
                   {key}
                 </p>
-                <p className="text-sm text-warning fw-bolder">{hero.powerstats[key]}</p>
               </div>
             ))}
           </div>
