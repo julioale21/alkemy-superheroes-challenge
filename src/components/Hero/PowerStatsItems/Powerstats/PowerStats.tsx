@@ -17,7 +17,7 @@ const PowerStats: React.FC<PowerStatListProps> = ({ powerstats, counterSize = 6 
               key={key}
               counterSize={counterSize}
               name={key}
-              value={powerstats[key]}
+              value={Number(powerstats[key])}
             />
           );
         })}
