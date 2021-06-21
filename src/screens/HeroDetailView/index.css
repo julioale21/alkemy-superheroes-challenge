@@ -1,0 +1,10 @@
+.hero-full-info,
+.hero-short-info {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media screen and (min-width: "1000px") {
+  .hero-info {
+    width: 300px;
+  }
+}
