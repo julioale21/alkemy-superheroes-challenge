@@ -14,7 +14,7 @@ const HeroCard: React.FC<HeroCardProps> = ({ hero, onHeroSelected, onRemoveSelec
         className="h-100 d-flex flex-column justify-content-between"
         style={{ backgroundColor: "rgba(255, 255, 255, 0.1)" }}
       >
-        <div className="mt-2 p-2">
+        <div className="p-2">
           <img alt="hero" className="rounded-2" src={hero.image.url} width="100%" />
         </div>
 
