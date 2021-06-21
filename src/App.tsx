@@ -1,27 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import "./App.css";
 import LoginView from "./screens/LoginView";
 import SearchView from "./screens/SearchView";
+import { HeroContext } from "./Context/HeroContext";
+import { HeroService } from "./services/HeroServise";
+import HeroDetailView from "./screens/HeroDetailView/HeroDetailView";
 import Home from "./screens/home/HomeView";
-import { HeroContext } from "./HeroContext";
 import Hero from "./models/Hero";
-import HeroDetailView from "./screens/HeroDetailView";
 
-const initialState = JSON.parse(localStorage.getItem("heroes") || "[]");
+const initialState = {
+  selectedHero: {} as Hero,
+  heroes: HeroService.getHeroesFromLocal(),
+  searchResult: JSON.parse(localStorage.getItem("searchResult") || "[]"),
+  checkValue: localStorage.getItem("checkValue") || "all",
+  searchText: localStorage.getItem("searchText") || "",
+};
 
 const App: React.FC = () => {
-  const [selectedHero, setSelectedHero] = React.useState<Hero>({} as Hero);
-  const [heroes, setHeroes] = React.useState<Hero[]>(initialState);
+  const [selectedHero, setSelectedHero] = useState<Hero>(initialState.selectedHero);
+  const [heroes, setHeroes] = useState<Hero[]>(initialState.heroes);
+  const [searchText, setSearchText] = useState(initialState.searchText);
+  const [searchResult, setSearchResult] = useState<Hero[]>(initialState.searchResult);
+  const [checkValue, setCheckValue] = useState(initialState.checkValue);
 
-  const token = localStorage.getItem("token");
+  const token = HeroService.getTokenFromLocal();
 
   React.useEffect(() => {
-    localStorage.setItem("heroes", JSON.stringify(heroes));
+    HeroService.setHeroesToLocal(heroes);
   }, [heroes]);
 
+  React.useEffect(() => {
+    localStorage.setItem("searchResult", JSON.stringify(searchResult));
+  }, [searchResult]);
+
+  React.useEffect(() => {
+    localStorage.setItem("checkValue", checkValue);
+  }, [checkValue]);
+
+  React.useEffect(() => {
+    localStorage.setItem("searchText", searchText);
+  }, [searchText]);
+
   return (
-    <HeroContext.Provider value={{ selectedHero, heroes, setSelectedHero, setHeroes }}>
+    <HeroContext.Provider
+      value={{
+        selectedHero,
+        heroes,
+        searchText,
+        searchResult,
+        checkValue,
+        setSelectedHero,
+        setHeroes,
+        setSearchText,
+        setSearchResult,
+        setCheckValue,
+      }}
+    >
       <Router>
         <div className="App">
           {!token && <Redirect to="/login" />}
