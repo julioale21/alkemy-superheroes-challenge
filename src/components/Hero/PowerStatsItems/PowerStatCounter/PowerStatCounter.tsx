@@ -1,27 +1,24 @@
 import React from "react";
 import CountUp from "react-countup";
+import "./index.css";
 
 interface PowerProps {
   name: string;
   value: number;
+  counterSize?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
-const PowerStatCounter: React.FC<PowerProps> = ({ name, value }) => {
+const PowerStatCounter: React.FC<PowerProps> = ({ name, value, counterSize = 1 }) => {
   return (
-    <div className="col-6 col-md-4 mb-3">
+    <div className="col-4 mb-3 d-flex flex-column">
       <CountUp delay={0} end={value} start={0}>
         {({ countUpRef }) => (
-          <div>
-            <span
-              ref={countUpRef}
-              className="fs-1 text-warning fw-bolder"
-              style={{ textShadow: "3px 3px 2px red" }}
-            />
-          </div>
+          <span ref={countUpRef} className={`counter fs-${counterSize} fw-bolder`} />
         )}
       </CountUp>
-      <h6 style={{ textShadow: "1px 1px 1px yellow" }}>
-        <span className="text-capitalize text-danger fs-5">{name}</span>
+      <h6 className="text-sm text-cente text-white">
+        {`Total Team' `}
+        <span className="text-capitalize text-white fw-bolder"> {name} </span>
       </h6>
     </div>
   );
