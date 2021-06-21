@@ -6,6 +6,8 @@ type HeroContextValues = {
   setSelectedHero: (hero: Hero) => void;
   heroes: Hero[];
   setHeroes: (heroes: Hero[]) => void;
+  searchText: string;
+  setSearchText: (text: string) => void;
   searchResult: Hero[];
   setSearchResult: (heroes: Hero[]) => void;
   checkValue: string;
@@ -17,10 +19,12 @@ const initialState: HeroContextValues = {
   heroes: [],
   searchResult: [] as Hero[],
   checkValue: "all",
+  searchText: "",
   setSelectedHero: () => {},
   setHeroes: () => {},
   setSearchResult: () => {},
   setCheckValue: () => {},
+  setSearchText: () => {},
 };
 
 export const HeroContext = createContext<HeroContextValues>(initialState);
