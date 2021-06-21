@@ -10,7 +10,7 @@ AOS.init();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ToastProvider>
+    <ToastProvider autoDismiss autoDismissTimeout={2000} placement="bottom-center">
       <App />
     </ToastProvider>
   </React.StrictMode>,
