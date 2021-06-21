@@ -1,54 +1,17 @@
 import React from "react";
-import { Redirect, useHistory } from "react-router-dom";
-import { useToasts } from "react-toast-notifications";
-
-import Appearance from "../../components/Hero/PowerStatsItems/Appearance";
-import Biography from "../../components/Hero/PowerStatsItems/Biography";
+import { Redirect } from "react-router-dom";
+import useHeroDetail from "./useHeroDetail";
 import Connections from "../../components/Hero/PowerStatsItems/Connections";
+import Appearance from "../../components/Hero/PowerStatsItems/Appearance";
 import PowerStats from "../../components/Hero/PowerStatsItems/Powerstats";
+import BtnRounded from "../../components/shared/BtnRounded";
+import Biography from "../../components/Hero/PowerStatsItems/Biography";
 import bgImage from "../../assets/bg-12.jpg";
 import Work from "../../components/Hero/PowerStatsItems/Work";
-import { HeroContext } from "../../Context/HeroContext";
-import Hero from "../../models/Hero";
 import "./index.css";
 
 const HeroDetailView: React.FC = () => {
-  const { selectedHero, heroes, setHeroes, setCheckValue, setSearchResult, setSearchText } =
-    React.useContext(HeroContext);
-  const history = useHistory();
-  const { addToast } = useToasts();
-
-  const exists = (hero: Hero): Boolean => {
-    return heroes.findIndex((item) => item.id === hero.id) !== -1;
-  };
-
-  const addHero = () => {
-    if (heroes.length >= 6) {
-      addToast("Your team is complete!", { appearance: "error" });
-
-      return;
-    }
-
-    const alignments = heroes.filter(
-      (hero) => hero.biography.alignment === selectedHero.biography.alignment,
-    );
-
-    if (alignments.length >= 3) {
-      addToast(`You have reached the limit of ${selectedHero.biography.alignment} alignments`, {
-        appearance: "error",
-      });
-
-      return;
-    }
-
-    if (!exists(selectedHero)) {
-      setHeroes([...heroes, selectedHero]);
-      setCheckValue("all");
-      setSearchResult([]);
-      setSearchText("");
-      history.push("/home");
-    }
-  };
+  const { selectedHero, exists, addHero, handleCancel } = useHeroDetail();
 
   return (
     <div
@@ -74,18 +37,13 @@ const HeroDetailView: React.FC = () => {
             <Connections connections={selectedHero.connections} />
             {!exists(selectedHero) ? (
               <div>
-                <button
-                  className="border-0 text-white px-4 rounded bg-warning my-5  mx-2 py-2 opacity-50"
-                  onClick={addHero}
-                >
+                <BtnRounded type="warning" onBtnClick={addHero}>
                   Ok
-                </button>
-                <button
-                  className="border-0 text-white px-3 rounded bg-danger my-5 mx-auto py-2 opacity-50"
-                  onClick={addHero}
-                >
+                </BtnRounded>
+
+                <BtnRounded type="danger" onBtnClick={handleCancel}>
                   Cancel
-                </button>
+                </BtnRounded>
               </div>
             ) : (
               <p className="fs-6 mt-2 text-danger">Hero is already in your team!</p>
