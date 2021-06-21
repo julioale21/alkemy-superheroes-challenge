@@ -1,10 +1,56 @@
+.averages {
+  margin-bottom: -150px;
+  margin-top: 20px;
+}
+
+.btn-instructions {
+  border-radius: 6rem;
+}
+
+.powerstats {
+  margin-bottom: -20px;
+}
+
 .powerstats-sections {
-  background-image: url("../../assets/bg-3.jpg");
+  background-image: url("../../assets/bg-7.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: 45%;
+  background-position: 70%;
 }
 
 .my-team-section {
-  background-image: url("../../assets/bg-2.jpg");
+  background-image: linear-gradient(200deg, #000000 40%, #141414 80%);
+}
+
+.title {
+  font-size: 6rem;
+  text-shadow: 1px 1px 3px rgb(0 0 0 / 29%), 2px 4px 7px rgb(73 64 125 / 35%);
+  font-family: 'Bangers', sans-serif;
+}
+
+
+@media screen and (min-width: 768px) {
+  .averages {
+    margin-bottom: -50px;
+    margin-top: 20px;
+  }
+
+  .powerstats {
+    width: 500px;
+    margin: 0 auto;
+  }
+
+  .powerstats-info {
+    width: 50%;
+    padding: 0 4.5rem;
+  }
+  .title {
+    font-size: 9rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .title {
+    font-size: 11rem;
+  }
 }
