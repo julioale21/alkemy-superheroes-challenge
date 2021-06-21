@@ -1,31 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import LoginForm from "../components/LoginForm";
-import axios from "axios";
 import backgroundImg from "../assets/super-background.jpg";
-import { useHistory } from "react-router-dom";
+import useLogin from "../hooks/useLogin";
 
 const LoginView: React.FC = () => {
-  const [error, setError] = useState<string | null>(null);
-  const history = useHistory();
-
-  const loginUser = async (email: string, password: string): Promise<void> => {
-    try {
-      const { data } = await axios.post("http://challenge-react.alkemy.org/", {
-        email,
-        password,
-      });
-
-      if (data.token) {
-        localStorage.setItem("token", data.token);
-      }
-
-      history.push("/home");
-    } catch (error) {
-      if (error.message.includes("401")) {
-        setError("Unauthorized: Invalid Email or Password.");
-      }
-    }
-  };
+  const { error, loginUser } = useLogin();
 
   return (
     <div
