@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import LoginForm from "../components/Login/LoginForm";
+import LoginForm from "../components/LoginForm";
 import axios from "axios";
 import backgroundImg from "../assets/super-background.jpg";
 import { useHistory } from "react-router-dom";

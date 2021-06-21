@@ -1,7 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import { render } from "@testing-library/react";
-import AppearanceItem from "./AppearanceItem";
+import AppearanceItem from "../AppearanceItem";
 
 test("render content", () => {
   const name: string = "gender";

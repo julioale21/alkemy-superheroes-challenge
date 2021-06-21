@@ -1,6 +1,6 @@
 import React from "react";
 import Biography from "../../../../models/Biography";
-import BiographyItem from "../BiographyItem";
+import TextInfo from "../../../shared/TextInfo";
 
 interface BiographyProps {
   bio: Biography;
@@ -11,7 +11,7 @@ const BiographyComponent: React.FC<BiographyProps> = ({ bio }) => {
     <div className="biography-section">
       <h6 className="text-center">Biography</h6>
       {Object.keys(bio).map((key) => (
-        <BiographyItem key={key} name={key} value={bio[key]} />
+        <TextInfo key={key} textSm textAlign="start" title={key} value={bio[key]} />
       ))}
     </div>
   );

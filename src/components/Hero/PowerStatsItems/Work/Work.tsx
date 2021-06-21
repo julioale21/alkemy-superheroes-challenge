@@ -1,6 +1,6 @@
 import React from "react";
 import Work from "../../../../models/Work";
-import WorkItem from "../WorkItem/WorkItem";
+import TextInfo from "../../../shared/TextInfo";
 
 interface WorkProps {
   work: Work;
@@ -11,7 +11,7 @@ const WorkComponent: React.FC<WorkProps> = ({ work }) => {
       <h6>Work</h6>
       <div className="row">
         {Object.keys(work).map((key) => (
-          <WorkItem key={key} name={key} value={work[key]} />
+          <TextInfo key={key} textSm textAlign="start" title={key} value={work[key]} />
         ))}
       </div>
     </div>
