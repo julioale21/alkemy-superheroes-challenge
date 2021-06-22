@@ -5,7 +5,12 @@ const Header = () => {
   return (
     <div className="header d-flex justify-content-end">
       <div className="mt-3 mx-5 w-100 d-flex justify-content-end">
-        <a className="mx-3" href="https://www.linkedin.com/check/manage-account">
+        <a
+          className="mx-3"
+          href="https://www.linkedin.com/in/julio-alejandro-romero-bb4197119"
+          rel="no-opener noreferrer"
+          target="_blank"
+        >
           <img
             alt="linkedin"
             src="https://icongr.am/fontawesome/linkedin-square.svg?size=30&color=faf5f5"
