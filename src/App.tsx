@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import "./App.css";
-import LoginView from "./screens/LoginView";
-import SearchView from "./screens/SearchView";
 import { HeroContext } from "./Context/HeroContext";
 import { HeroService } from "./services/HeroServise";
 import HeroDetailView from "./screens/HeroDetailView/HeroDetailView";
+import LoginView from "./screens/LoginView";
+import SearchView from "./screens/SearchView";
 import Home from "./screens/home/HomeView";
 import Hero from "./models/Hero";
+import "./App.css";
+import Header from "./components/Header";
 
 const initialState = {
   selectedHero: {} as Hero,
-  heroes: HeroService.getHeroesFromLocal(),
-  searchResult: JSON.parse(localStorage.getItem("searchResult") || "[]"),
-  checkValue: localStorage.getItem("checkValue") || "all",
-  searchText: localStorage.getItem("searchText") || "",
+  heroes: HeroService.getHeroesFromLocalStorage("heroes"),
+  searchResult: HeroService.getHeroesFromLocalStorage("searchResult"),
+  checkValue: HeroService.getItemFromLocalStorage("checkValue") || "all",
+  searchText: HeroService.getItemFromLocalStorage("searchText") || "",
 };
 
 const App: React.FC = () => {
@@ -24,22 +25,22 @@ const App: React.FC = () => {
   const [searchResult, setSearchResult] = useState<Hero[]>(initialState.searchResult);
   const [checkValue, setCheckValue] = useState(initialState.checkValue);
 
-  const token = HeroService.getTokenFromLocal();
+  const token = HeroService.getItemFromLocalStorage("token");
 
   React.useEffect(() => {
-    HeroService.setHeroesToLocal(heroes);
+    HeroService.setHeroesToLocalStorage("heroes", heroes);
   }, [heroes]);
 
   React.useEffect(() => {
-    localStorage.setItem("searchResult", JSON.stringify(searchResult));
+    HeroService.setHeroesToLocalStorage("searchResult", searchResult);
   }, [searchResult]);
 
   React.useEffect(() => {
-    localStorage.setItem("checkValue", checkValue);
+    HeroService.setItemToLocalStorage("checkValue", checkValue);
   }, [checkValue]);
 
   React.useEffect(() => {
-    localStorage.setItem("searchText", searchText);
+    HeroService.setItemToLocalStorage("searchText", searchText);
   }, [searchText]);
 
   return (
@@ -59,6 +60,7 @@ const App: React.FC = () => {
     >
       <Router>
         <div className="App">
+          <Header />
           {!token && <Redirect to="/login" />}
           <Switch>
             <Route path="/detail">
