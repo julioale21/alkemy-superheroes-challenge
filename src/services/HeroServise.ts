@@ -1,23 +1,23 @@
 import Hero from "../models/Hero";
 
 export class HeroService {
-  static getHeroesFromLocal() {
-    return JSON.parse(localStorage.getItem("heroes") || "[]");
+  static getHeroesFromLocalStorage(arrayName: string) {
+    return JSON.parse(localStorage.getItem(arrayName) || "[]");
   }
 
-  static setHeroesToLocal(heroes: Hero[]) {
-    localStorage.setItem("heroes", JSON.stringify(heroes));
+  static setHeroesToLocalStorage(arrayName: string, heroes: Hero[]) {
+    localStorage.setItem(arrayName, JSON.stringify(heroes));
   }
 
-  static getTokenFromLocal() {
-    return localStorage.getItem("token");
+  static getItemFromLocalStorage(itemName: string) {
+    return localStorage.getItem(itemName);
   }
 
-  static setTokenToLocal(token: string) {
-    localStorage.setItem("token", token);
+  static setItemToLocalStorage(itemName: string, item: string) {
+    localStorage.setItem(itemName, item);
   }
 
-  static removeTokenFromLocal() {
-    localStorage.removeItem("token");
+  static removeItemFromLocalStorage(itemName: string) {
+    localStorage.removeItem(itemName);
   }
 }
