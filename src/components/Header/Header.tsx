@@ -5,7 +5,7 @@ interface HeaderProps {
   iconsColor?: string;
   onClosePressed: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
-const Header: React.FC<HeaderProps> = ({ iconsColor = "3A3939", onClosePressed }) => {
+const Header: React.FC<HeaderProps> = ({ iconsColor = "DBD9D9", onClosePressed }) => {
   return (
     <div className="header w-100 d-flex justify-content-end">
       <div className="mt-3 mx-5 w-100 d-flex justify-content-end">

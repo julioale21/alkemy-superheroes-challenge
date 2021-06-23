@@ -19,7 +19,7 @@ const HeroDetailView: React.FC = () => {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       {Object.entries(selectedHero).length > 0 ? (
-        <div className="row d-flex justify-content-center align-items-center py-5">
+        <div className="row d-flex justify-content-center align-items-center py-5 mt-5">
           <div className="hero-short-info col-11 col-sm-8 col-md-6 col-lg-3 col-xl-4 m-0 h-100 fw-bolder p-3 mx-3 text-white">
             <img src={selectedHero.image.url} style={{ width: "100%" }} />
             <PowerStats counterSize={3} powerstats={selectedHero.powerstats} />

@@ -1,9 +1,13 @@
 import React from "react";
 import Header from "./Header";
 
-const AppLayout: React.FC = ({ children }) => (
+interface Props {
+  onExit: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const AppLayout: React.FC<Props> = ({ onExit, children }) => (
   <div>
-    <Header onClosePressed={() => {}} />
+    <Header onClosePressed={onExit} />
     {children}
   </div>
 );

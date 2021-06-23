@@ -1,9 +1,8 @@
 .header {
-  position: sticky;
+  position: absolute;
   top: 0;
   right: 0;
   height: 50px;
-  margin-top: -50px;
   background-color: transparent;
   z-index: 1;
 }
