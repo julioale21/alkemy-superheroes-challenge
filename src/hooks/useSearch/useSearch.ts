@@ -17,6 +17,7 @@ const useSearch = () => {
     filter,
     setFilter,
   } = React.useContext(HeroContext);
+
   const [loading, setLoading] = React.useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -63,6 +64,7 @@ const useSearch = () => {
     loading,
     filter,
     searchResult,
+    setSelectedHero,
     handleChange,
     handleSubmit,
     handleSelectedHero,
