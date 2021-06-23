@@ -14,8 +14,8 @@ const useSearch = () => {
     setSearchText,
     searchResult,
     setSearchResult,
-    checkValue,
-    setCheckValue,
+    filter,
+    setFilter,
   } = React.useContext(HeroContext);
   const [loading, setLoading] = React.useState(false);
 
@@ -31,11 +31,11 @@ const useSearch = () => {
       return;
     }
     const filteredHeroes = data.filter((hero) => {
-      if (checkValue === "all") {
+      if (filter === "all") {
         return hero;
       }
 
-      return hero.biography.alignment === checkValue;
+      return hero.biography.alignment === filter;
     });
 
     setSearchResult(filteredHeroes);
@@ -55,13 +55,13 @@ const useSearch = () => {
   };
 
   const handleCheckButtonChanged = (e: React.FormEvent<HTMLInputElement>) => {
-    setCheckValue(e.currentTarget.value);
+    setFilter(e.currentTarget.value);
   };
 
   return {
     searchText,
     loading,
-    checkValue,
+    filter,
     searchResult,
     handleChange,
     handleSubmit,

@@ -17,7 +17,7 @@ const HomeView: React.FC = () => {
     setSelectedHero,
     setSearchResult,
     setSearchText,
-    setCheckValue,
+    setFilter,
   } = React.useContext(HeroContext);
   const [modal, setModal] = React.useState(false);
   const history = useHistory();
@@ -25,7 +25,7 @@ const HomeView: React.FC = () => {
   const { powerstats, averageWeight, averageHeight, sortedArray } = usePowerStats(heroes);
 
   const handleAddClick = () => {
-    setCheckValue("all");
+    setFilter("all");
     setSearchResult([]);
     setSearchText("");
     history.push("/search");

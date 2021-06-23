@@ -1,52 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import { HeroContext } from "./Context/HeroContext";
-import { HeroService } from "./services/HeroServise";
+// import { HeroService } from "./services/HeroServise";
 import HeroDetailView from "./screens/HeroDetailView/HeroDetailView";
 import LoginView from "./screens/LoginView";
-import SearchView from "./screens/SearchView";
+import SearchView from "./screens/SearchView/SearchView";
 import Home from "./screens/home/HomeView";
-import Hero from "./models/Hero";
+// import Hero from "./models/Hero";
 import "./App.css";
-import AppLayout from "./components/AppLayout";
-
-const initialState = {
-  selectedHero: {} as Hero,
-  heroes: HeroService.getHeroesFromLocalStorage("heroes"),
-  searchResult: HeroService.getHeroesFromLocalStorage("searchResult"),
-  checkValue: HeroService.getItemFromLocalStorage("checkValue") || "all",
-  searchText: HeroService.getItemFromLocalStorage("searchText") || "",
-};
+import AppLayout from "./components/AppLayout/AppLayout";
+import useSession from "./hooks/useSession";
+import useHeroes from "./hooks/useHeroes";
 
 const App: React.FC = () => {
-  const [selectedHero, setSelectedHero] = useState<Hero>(initialState.selectedHero);
-  const [heroes, setHeroes] = useState<Hero[]>(initialState.heroes);
-  const [searchText, setSearchText] = useState(initialState.searchText);
-  const [searchResult, setSearchResult] = useState<Hero[]>(initialState.searchResult);
-  const [checkValue, setCheckValue] = useState(initialState.checkValue);
+  const { handleLogOut, getToken } = useSession();
+  const {
+    selectedHero,
+    setSelectedHero,
+    heroes,
+    setHeroes,
+    searchText,
+    setSearchText,
+    searchResult,
+    setSearchResult,
+    filter,
+    setFilter,
+  } = useHeroes();
 
-  const token = HeroService.getItemFromLocalStorage("token");
-
-  React.useEffect(() => {
-    HeroService.setHeroesToLocalStorage("heroes", heroes);
-  }, [heroes]);
-
-  React.useEffect(() => {
-    HeroService.setHeroesToLocalStorage("searchResult", searchResult);
-  }, [searchResult]);
-
-  React.useEffect(() => {
-    HeroService.setItemToLocalStorage("checkValue", checkValue);
-  }, [checkValue]);
-
-  React.useEffect(() => {
-    HeroService.setItemToLocalStorage("searchText", searchText);
-  }, [searchText]);
-
-  const handleLogOut = () => {
-    HeroService.removeItemFromLocalStorage("token");
-    window.location.reload(true);
-  };
+  const token = getToken();
 
   return (
     <HeroContext.Provider
@@ -55,12 +36,12 @@ const App: React.FC = () => {
         heroes,
         searchText,
         searchResult,
-        checkValue,
+        filter,
         setSelectedHero,
         setHeroes,
         setSearchText,
         setSearchResult,
-        setCheckValue,
+        setFilter,
       }}
     >
       <Router>

@@ -10,20 +10,20 @@ type HeroContextValues = {
   setSearchText: (text: string) => void;
   searchResult: Hero[];
   setSearchResult: (heroes: Hero[]) => void;
-  checkValue: string;
-  setCheckValue: (value: string) => void;
+  filter: string;
+  setFilter: (value: string) => void;
 };
 
 const initialState: HeroContextValues = {
   selectedHero: {} as Hero,
   heroes: [],
   searchResult: [] as Hero[],
-  checkValue: "all",
+  filter: "all",
   searchText: "",
   setSelectedHero: () => {},
   setHeroes: () => {},
   setSearchResult: () => {},
-  setCheckValue: () => {},
+  setFilter: () => {},
   setSearchText: () => {},
 };
 

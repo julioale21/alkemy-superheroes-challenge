@@ -5,15 +5,7 @@ import { useToasts } from "react-toast-notifications";
 import Hero from "../../models/Hero";
 
 const useHeroDetail = () => {
-  const {
-    selectedHero,
-    setSelectedHero,
-    heroes,
-    setHeroes,
-    setCheckValue,
-    setSearchResult,
-    setSearchText,
-  } = React.useContext(HeroContext);
+  const { selectedHero, setSelectedHero, heroes, setHeroes } = React.useContext(HeroContext);
   const history = useHistory();
   const { addToast } = useToasts();
 
@@ -42,9 +34,6 @@ const useHeroDetail = () => {
 
     if (!exists(selectedHero)) {
       setHeroes([...heroes, selectedHero]);
-      setCheckValue("all");
-      setSearchResult([]);
-      setSearchText("");
       addToast(`${selectedHero.name} is now member of your Team!`, { appearance: "success" });
       history.push("/home");
     }
