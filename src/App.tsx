@@ -8,7 +8,8 @@ import SearchView from "./screens/SearchView";
 import Home from "./screens/home/HomeView";
 import Hero from "./models/Hero";
 import "./App.css";
-import Header from "./components/Header";
+import AppRoute from "./components/AppRoute";
+import AppLayout from "./components/AppLayout";
 
 const initialState = {
   selectedHero: {} as Hero,
@@ -43,6 +44,11 @@ const App: React.FC = () => {
     HeroService.setItemToLocalStorage("searchText", searchText);
   }, [searchText]);
 
+  // const handleLogOut = () => {
+  //   HeroService.removeItemFromLocalStorage("token");
+  //   window.location.reload(true);
+  // };
+
   return (
     <HeroContext.Provider
       value={{
@@ -60,16 +66,18 @@ const App: React.FC = () => {
     >
       <Router>
         <div className="App">
-          <Header />
+          {/* <Header onClosePressed={handleLogOut} /> */}
           {!token && <Redirect to="/login" />}
           <Switch>
             <Route path="/detail">
               <HeroDetailView />
             </Route>
 
-            <Route path="/home">
+            {/* <Route path="/home">
               <Home />
-            </Route>
+            </Route> */}
+
+            <AppRoute component={Home} layout={AppLayout} path="/home" />
 
             <Route path="/login">
               {token && <Redirect to="/home" />}

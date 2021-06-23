@@ -5,6 +5,7 @@
   height: 100%;
   min-height: 100%;
   font-family: Poppins, Roboto, sans-serif;
+  z-index: 0;
 }
 
 .cursor-pointer {
