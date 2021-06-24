@@ -28,6 +28,7 @@ const Home: React.FC = () => {
     setFilter("all");
     setSearchResult([]);
     setSearchText("");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleAddClick = () => {
@@ -50,14 +51,14 @@ const Home: React.FC = () => {
     <div className="w-100 overflow-hidden">
       <div className="powerstats-sections min-vh-100">
         <div
-          className="powerstats-info d-flex flex-column min-vh-100 justify-content-around align-items-center"
+          className="powerstats-info  d-flex flex-column min-vh-100 justify-content-around align-items-center"
           data-aos="fade-up"
           data-aos-delay="200"
           data-aos-duration="2000"
         >
           <h1 className="title text-white fw-bolder text-uppercase">Superheros</h1>
 
-          {heroes.length && (
+          {heroes.length ? (
             <div>
               <div className="powerstats row">
                 {Object.keys(sortedArray).map((key) => (
@@ -75,11 +76,28 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
+          ) : (
+            <div className="welcome text-white">
+              <h3 className="welcome-title">Welcome to Alkemy Challenge!</h3>
+              <p className="text-sm">
+                Solved by{" "}
+                <a
+                  href="https://github.com/julioale21"
+                  rel="no-opener noreferrer"
+                  style={{ color: "inherit" }}
+                  target="_blank"
+                >
+                  @JulioRomero
+                </a>
+              </p>
+              <a className="btn-start px-4 py-2" href="#team-section">{`Let's start!`}</a>
+            </div>
           )}
         </div>
       </div>
 
-      <div className="my-team-section h-100 min-vh-100 pb-5">
+      <div className="my-team-section h-100 min-vh-100 pb-5" id="team-section">
+        {heroes.length === 0 && <p className="text-white pt-4 fs-5">Add a new Hero</p>}
         <div className="row w-100 mx-auto d-flex justify-content-center ">
           {heroes.map((hero) => (
             <HeroCard
