@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../../../models/Hero";
 import CloseBtnCircular from "../../shared/CircularCloseBtn";
 import TextInfo from "../../shared/TextInfo";
+import "./index.css";
 
 interface DetailProps {
   hero: Hero;
@@ -10,7 +11,7 @@ interface DetailProps {
 const HeroDetail: React.FC<DetailProps> = ({ hero, onClose }) => {
   return (
     <div className="d-flex position-fixed justify-content-center align-items-center top-0 w-100 h-100">
-      <div className="card-detail bg-black d-flex flex-column">
+      <div className="card-detail d-flex flex-column">
         <div className="w-100">
           <CloseBtnCircular onButtonPressed={onClose} />
         </div>
