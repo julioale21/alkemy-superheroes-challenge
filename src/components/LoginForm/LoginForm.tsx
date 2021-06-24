@@ -2,13 +2,15 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./index.css";
+import BtnSpinner from "../shared/BtnSpinner";
 
 interface LoginProps {
   login: (email: string, password: string) => void;
   error?: string | null;
+  loading: boolean;
 }
 
-const LoginForm: React.FC<LoginProps> = ({ login, error }) => {
+const LoginForm: React.FC<LoginProps> = ({ login, error, loading }) => {
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -27,12 +29,12 @@ const LoginForm: React.FC<LoginProps> = ({ login, error }) => {
 
   return (
     <form
-      className="form d-flex flex-column col-10 col-sm-8 col-md-4 rounded h-50 px-5 justify-content-center"
+      className="form d-flex flex-column col-10 col-sm-8 col-md-6 col-lg-4 rounded h-50 px-5 justify-content-center"
       onSubmit={formik.handleSubmit}
     >
       <input
         autoComplete="off"
-        className={`input mx-2 ${formik.errors.email && "error-input"}`}
+        className={`input mx-2 py-3 ${formik.errors.email && "error-input"}`}
         id="email"
         placeholder="Enter your email"
         type="email"
@@ -44,7 +46,7 @@ const LoginForm: React.FC<LoginProps> = ({ login, error }) => {
       ) : null}
 
       <input
-        className={`input mt-2 mx-2 ${formik.errors.password && "error-input"}`}
+        className={`input mt-2 py-3 mx-2 ${formik.errors.password && "error-input"}`}
         id="password"
         placeholder="Enter your password"
         type="password"
@@ -56,11 +58,23 @@ const LoginForm: React.FC<LoginProps> = ({ login, error }) => {
         <p className="error-text">{formik.errors.password}</p>
       ) : null}
 
-      <button className="button mt-4 mx-5" type="submit">
+      <BtnSpinner className="button" loading={loading}>
         Login
-      </button>
+      </BtnSpinner>
 
-      {error && <p className="mt-3 text-danger">{error}</p>}
+      {error && (
+        <div className="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+          <strong>Login Error!</strong> {error}
+          <button
+            aria-label="Close"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            type="button"
+          ></button>
+        </div>
+      )}
+
+      {/* {error && <p className="mt-3 text-danger">{error}</p>} */}
     </form>
   );
 };
