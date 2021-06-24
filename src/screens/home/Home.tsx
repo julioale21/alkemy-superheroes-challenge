@@ -12,12 +12,12 @@ import "./index.css";
 const Home: React.FC = () => {
   const {
     heros,
-    setHeros,
+    addHeros,
     selectedHero,
     setSelectedHero,
-    setSearchResult,
-    setSearchText,
-    setFilter,
+    updateSearchResult,
+    updateSearchValue,
+    changeFilter,
   } = React.useContext(HeroContext);
   const [modal, setModal] = React.useState(false);
   const history = useHistory();
@@ -25,16 +25,16 @@ const Home: React.FC = () => {
   const { powerstats, averageWeight, averageHeight, sortedArray } = usePowerStats(heros);
 
   React.useEffect(() => {
-    setFilter("all");
-    setSearchResult([]);
-    setSearchText("");
+    changeFilter("all");
+    updateSearchResult([]);
+    updateSearchValue("");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleAddClick = () => {
-    setFilter("all");
-    setSearchResult([]);
-    setSearchText("");
+    changeFilter("all");
+    updateSearchResult([]);
+    updateSearchValue("");
     history.push("/search");
   };
 
@@ -44,7 +44,7 @@ const Home: React.FC = () => {
   };
 
   const handleRemoveHero = (hero: Hero) => {
-    setHeros(heros.filter((item) => item.id !== hero.id));
+    addHeros(heros.filter((item) => item.id !== hero.id));
   };
 
   return (

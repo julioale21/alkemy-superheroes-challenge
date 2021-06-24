@@ -11,7 +11,7 @@ import Work from "../../components/Hero/PowerStatsItems/Work";
 import "./index.css";
 
 const Detail: React.FC = () => {
-  const { selectedHero, exists, addHero, handleCancel } = useHeroDetail();
+  const { selectedHero, exists, addNewHero, handleCancel } = useHeroDetail();
 
   return (
     <div
@@ -37,7 +37,7 @@ const Detail: React.FC = () => {
             <Connections connections={selectedHero.connections} />
             {!exists(selectedHero) ? (
               <div>
-                <BtnRounded type="warning" onBtnClick={addHero}>
+                <BtnRounded type="warning" onBtnClick={addNewHero}>
                   Ok
                 </BtnRounded>
 

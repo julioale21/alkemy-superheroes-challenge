@@ -9,13 +9,13 @@ const searchUrl = import.meta.env.VITE_SEARCH_URL;
 const useSearch = () => {
   const history = useHistory();
   const {
-    setSelectedHero,
-    searchText,
-    setSearchText,
-    searchResult,
-    setSearchResult,
     filter,
-    setFilter,
+    searchText,
+    searchResult,
+    changeFilter,
+    setSelectedHero,
+    updateSearchValue,
+    updateSearchResult,
   } = React.useContext(HeroContext);
 
   const [loading, setLoading] = React.useState(false);
@@ -23,7 +23,7 @@ const useSearch = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setSearchResult([]);
+    updateSearchResult([]);
 
     const response = await axios.get(searchUrl + searchText);
     const data: Hero[] = response.data.results;
@@ -39,14 +39,14 @@ const useSearch = () => {
       return hero.biography.alignment === filter;
     });
 
-    setSearchResult(filteredHeros);
+    updateSearchResult(filteredHeros);
     setLoading(false);
   };
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setSearchText(e.currentTarget.value);
+    updateSearchValue(e.currentTarget.value);
     if (e.currentTarget.value === "") {
-      setSearchResult([]);
+      updateSearchResult([]);
     }
   };
 
@@ -56,7 +56,7 @@ const useSearch = () => {
   };
 
   const handleCheckButtonChanged = (e: React.FormEvent<HTMLInputElement>) => {
-    setFilter(e.currentTarget.value);
+    changeFilter(e.currentTarget.value);
   };
 
   return {

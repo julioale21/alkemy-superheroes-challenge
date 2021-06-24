@@ -6,7 +6,7 @@ import Search from "./screens/Search";
 import Home from "./screens/home";
 import AppLayout from "./components/AppLayout";
 import useSession from "./hooks/useSession";
-import HeroState from "./HeroState";
+import HeroState from "./Context/HeroContextProvider";
 import "./App.css";
 
 const App: React.FC = () => {

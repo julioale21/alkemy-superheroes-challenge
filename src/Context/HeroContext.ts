@@ -1,30 +1,19 @@
+import { HeroContextState } from "../types/HeroContextState";
 import { createContext } from "react";
 import Hero from "../models/Hero";
+import { HeroService } from "../services/HeroServise";
 
-type HeroContextValues = {
-  selectedHero: Hero;
-  setSelectedHero: (hero: Hero) => void;
-  heros: Hero[];
-  setHeros: (heros: Hero[]) => void;
-  searchText: string;
-  setSearchText: (text: string) => void;
-  searchResult: Hero[];
-  setSearchResult: (heros: Hero[]) => void;
-  filter: string;
-  setFilter: (value: string) => void;
-};
-
-const initialState: HeroContextValues = {
+export const contextDefaultValues: HeroContextState = {
   selectedHero: {} as Hero,
-  heros: [],
-  searchResult: [] as Hero[],
-  filter: "all",
-  searchText: "",
+  heros: HeroService.getHeros("heros"),
+  searchResult: HeroService.getHeros("searchResult"),
+  filter: HeroService.getItem("filter") || "all",
+  searchText: HeroService.getItem("searchText") || "",
   setSelectedHero: () => {},
-  setHeros: () => {},
-  setSearchResult: () => {},
-  setFilter: () => {},
-  setSearchText: () => {},
+  addHeros: () => {},
+  updateSearchResult: () => {},
+  changeFilter: () => {},
+  updateSearchValue: () => {},
 };
 
-export const HeroContext = createContext<HeroContextValues>(initialState);
+export const HeroContext = createContext<HeroContextState>(contextDefaultValues);
