@@ -4,24 +4,24 @@ import Hero from "../models/Hero";
 type HeroContextValues = {
   selectedHero: Hero;
   setSelectedHero: (hero: Hero) => void;
-  heroes: Hero[];
-  setHeroes: (heroes: Hero[]) => void;
+  heros: Hero[];
+  setHeros: (heros: Hero[]) => void;
   searchText: string;
   setSearchText: (text: string) => void;
   searchResult: Hero[];
-  setSearchResult: (heroes: Hero[]) => void;
+  setSearchResult: (heros: Hero[]) => void;
   filter: string;
   setFilter: (value: string) => void;
 };
 
 const initialState: HeroContextValues = {
   selectedHero: {} as Hero,
-  heroes: [],
+  heros: [],
   searchResult: [] as Hero[],
   filter: "all",
   searchText: "",
   setSelectedHero: () => {},
-  setHeroes: () => {},
+  setHeros: () => {},
   setSearchResult: () => {},
   setFilter: () => {},
   setSearchText: () => {},

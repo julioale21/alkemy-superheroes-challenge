@@ -1,11 +1,11 @@
 import Hero from "../models/Hero";
 
 export class HeroService {
-  static getHeroes(arrayName: string) {
+  static getHeros(arrayName: string) {
     return JSON.parse(localStorage.getItem(arrayName) || "[]");
   }
 
-  static setHeroes(arrayName: string, heroes: Hero[]) {
+  static setHeros(arrayName: string, heroes: Hero[]) {
     localStorage.setItem(arrayName, JSON.stringify(heroes));
   }
 

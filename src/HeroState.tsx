@@ -6,24 +6,24 @@ import { HeroService } from "./services/HeroServise";
 const HeroState: React.FC = ({ children }) => {
   const initialState = {
     selectedHero: {} as Hero,
-    heroes: HeroService.getHeroes("heroes"),
-    searchResult: HeroService.getHeroes("searchResult"),
+    heros: HeroService.getHeros("heros"),
+    searchResult: HeroService.getHeros("searchResult"),
     filter: HeroService.getItem("filter") || "all",
     searchText: HeroService.getItem("searchText") || "",
   };
 
   const [selectedHero, setSelectedHero] = useState<Hero>(initialState.selectedHero);
-  const [heroes, setHeroes] = useState<Hero[]>(initialState.heroes);
+  const [heros, setHeros] = useState<Hero[]>(initialState.heros);
   const [searchText, setSearchText] = useState(initialState.searchText);
   const [searchResult, setSearchResult] = useState<Hero[]>(initialState.searchResult);
   const [filter, setFilter] = useState(initialState.filter);
 
   React.useEffect(() => {
-    HeroService.setHeroes("heroes", heroes);
-  }, [heroes]);
+    HeroService.setHeros("heros", heros);
+  }, [heros]);
 
   React.useEffect(() => {
-    HeroService.setHeroes("searchResult", searchResult);
+    HeroService.setHeros("searchResult", searchResult);
   }, [searchResult]);
 
   React.useEffect(() => {
@@ -39,8 +39,8 @@ const HeroState: React.FC = ({ children }) => {
       value={{
         selectedHero,
         setSelectedHero,
-        heroes,
-        setHeroes,
+        heros,
+        setHeros,
         searchText,
         setSearchText,
         searchResult,
