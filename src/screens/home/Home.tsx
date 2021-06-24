@@ -11,8 +11,8 @@ import "./index.css";
 
 const Home: React.FC = () => {
   const {
-    heroes,
-    setHeroes,
+    heros,
+    setHeros,
     selectedHero,
     setSelectedHero,
     setSearchResult,
@@ -22,7 +22,7 @@ const Home: React.FC = () => {
   const [modal, setModal] = React.useState(false);
   const history = useHistory();
 
-  const { powerstats, averageWeight, averageHeight, sortedArray } = usePowerStats(heroes);
+  const { powerstats, averageWeight, averageHeight, sortedArray } = usePowerStats(heros);
 
   React.useEffect(() => {
     setFilter("all");
@@ -44,7 +44,7 @@ const Home: React.FC = () => {
   };
 
   const handleRemoveHero = (hero: Hero) => {
-    setHeroes(heroes.filter((item) => item.id !== hero.id));
+    setHeros(heros.filter((item) => item.id !== hero.id));
   };
 
   return (
@@ -58,8 +58,9 @@ const Home: React.FC = () => {
         >
           <h1 className="title text-white fw-bolder text-uppercase">Superheros</h1>
 
-          {heroes.length ? (
+          {heros.length ? (
             <div>
+              <h3 className="text-white mb-4 fw-bolder">Team Powerstats</h3>
               <div className="powerstats row">
                 {Object.keys(sortedArray).map((key) => (
                   <PowerStatCounter key={key} name={key} value={powerstats[key]} />
@@ -97,9 +98,9 @@ const Home: React.FC = () => {
       </div>
 
       <div className="my-team-section h-100 min-vh-100 pb-5" id="team-section">
-        {heroes.length === 0 && <p className="text-white pt-4 fs-5">Add a new Hero</p>}
+        {heros.length === 0 && <p className="text-white pt-5 fs-5">Add a new Hero to start</p>}
         <div className="row w-100 mx-auto d-flex justify-content-center ">
-          {heroes.map((hero) => (
+          {heros.map((hero) => (
             <HeroCard
               key={hero.id}
               hero={hero}
@@ -108,7 +109,7 @@ const Home: React.FC = () => {
             />
           ))}
 
-          {heroes.length < 6 && <AddHeroCard onAddClick={handleAddClick} />}
+          {heros.length < 6 && <AddHeroCard onAddClick={handleAddClick} />}
         </div>
       </div>
 

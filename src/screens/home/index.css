@@ -16,7 +16,8 @@
 }
 
 .btn-start:hover {
-  color: red;
+  color: white;
+  background-color: orange;
 }
 
 .powerstats {

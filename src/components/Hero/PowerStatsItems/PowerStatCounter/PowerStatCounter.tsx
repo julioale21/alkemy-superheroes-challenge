@@ -17,7 +17,7 @@ const PowerStatCounter: React.FC<PowerProps> = ({ name, value, counterSize = 1 }
         )}
       </CountUp>
       <h6 className="text-sm text-cente text-white">
-        {`Total Team' `}
+        {`Total`}
         <span className="text-capitalize text-white fw-bolder"> {name} </span>
       </h6>
     </div>

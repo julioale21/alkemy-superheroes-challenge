@@ -30,7 +30,7 @@ const Search: React.FC = () => {
           onInputChange={(e) => handleChange(e)}
         />
 
-        {!loading && <HeroList heroes={searchResult} onHeroSelected={handleSelectedHero} />}
+        {!loading && <HeroList heros={searchResult} onHeroSelected={handleSelectedHero} />}
       </div>
     </div>
   );

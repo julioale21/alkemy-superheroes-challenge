@@ -16,18 +16,18 @@ const HeroDetail: React.FC<DetailProps> = ({ hero, onClose }) => {
           <CloseBtnCircular onButtonPressed={onClose} />
         </div>
         <div className="d-flex justify-content-center align-items-center mx-2">
-          <img alt={hero.name} src={hero.image.url} style={{ maxHeight: "200px" }} />
+          <img alt={hero.name} src={hero.image.url} style={{ maxHeight: "350px" }} />
         </div>
-        <div className="d-flex flex-column align-items-center p-5 pt-3 pe-3 text-white">
+        <div className="container d-flex flex-column align-items-center p-5 pt-3 pe-3 text-white">
           <h1 className="text-white">{hero.name}</h1>
           <TextInfo title="Aliases" value={hero.biography.aliases.toString()} />
-          <div className="w-75 d-flex justify-content-between">
-            <TextInfo title="Weight" value={hero.appearance.weight[1]} />
-            <TextInfo title="Height" value={hero.appearance.height[1]} />
+          <div className="w-75 d-flex justify-content-between gap-2">
+            <TextInfo textAlign="start" title="Weight" value={hero.appearance.weight[1]} />
+            <TextInfo textAlign="start" title="Height" value={hero.appearance.height[1]} />
           </div>
-          <div className="w-75 d-flex justify-content-between">
-            <TextInfo title="Eyes Color" value={hero.appearance["eye-color"]} />
-            <TextInfo title="Hair Color" value={hero.appearance["hair-color"]} />
+          <div className="w-75 d-flex justify-content-between gap-2">
+            <TextInfo textAlign="start" title="Eyes Color" value={hero.appearance["eye-color"]} />
+            <TextInfo textAlign="start" title="Hair Color" value={hero.appearance["hair-color"]} />
           </div>
           <div className="w-75 d-flex justify-content-start">
             <TextInfo title="Place of work" value={hero.work.base} />

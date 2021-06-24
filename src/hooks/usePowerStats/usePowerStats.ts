@@ -3,8 +3,6 @@ import Powerstats from "../../interfaces/PowerStatsInterface";
 import Hero from "../../models/Hero";
 
 const usePowerStats = (heros: Hero[]) => {
-  //const { heroes } = useContext(HeroContext);
-
   const powerstats: Powerstats = useMemo(() => {
     const totalCombat = heros.reduce((total, hero) => {
       return total + Number(hero.powerstats.combat);

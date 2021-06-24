@@ -5,8 +5,8 @@ export class HeroService {
     return JSON.parse(localStorage.getItem(arrayName) || "[]");
   }
 
-  static setHeros(arrayName: string, heroes: Hero[]) {
-    localStorage.setItem(arrayName, JSON.stringify(heroes));
+  static setHeros(arrayName: string, heros: Hero[]) {
+    localStorage.setItem(arrayName, JSON.stringify(heros));
   }
 
   static getItem(itemName: string) {

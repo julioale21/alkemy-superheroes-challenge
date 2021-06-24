@@ -5,22 +5,22 @@ import { useToasts } from "react-toast-notifications";
 import Hero from "../../models/Hero";
 
 const useHeroDetail = () => {
-  const { selectedHero, setSelectedHero, heroes, setHeroes } = React.useContext(HeroContext);
+  const { selectedHero, setSelectedHero, heros, setHeros } = React.useContext(HeroContext);
   const history = useHistory();
   const { addToast } = useToasts();
 
   const exists = (hero: Hero): Boolean => {
-    return heroes.findIndex((item) => item.id === hero.id) !== -1;
+    return heros.findIndex((item) => item.id === hero.id) !== -1;
   };
 
   const addHero = () => {
-    if (heroes.length >= 6) {
+    if (heros.length >= 6) {
       addToast("Your team is complete!", { appearance: "error" });
 
       return;
     }
 
-    const alignments = heroes.filter(
+    const alignments = heros.filter(
       (hero) => hero.biography.alignment === selectedHero.biography.alignment,
     );
 
@@ -33,7 +33,7 @@ const useHeroDetail = () => {
     }
 
     if (!exists(selectedHero)) {
-      setHeroes([...heroes, selectedHero]);
+      setHeros([...heros, selectedHero]);
       addToast(`${selectedHero.name} is now member of your Team!`, { appearance: "success" });
       history.push("/home");
     }

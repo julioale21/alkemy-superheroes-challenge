@@ -31,7 +31,7 @@ const useSearch = () => {
     if (!data) {
       return;
     }
-    const filteredHeroes = data.filter((hero) => {
+    const filteredHeros = data.filter((hero) => {
       if (filter === "all") {
         return hero;
       }
@@ -39,7 +39,7 @@ const useSearch = () => {
       return hero.biography.alignment === filter;
     });
 
-    setSearchResult(filteredHeroes);
+    setSearchResult(filteredHeros);
     setLoading(false);
   };
 
