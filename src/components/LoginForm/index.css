@@ -17,7 +17,6 @@
 
 .input::placeholder {
   color: rgba(245, 238, 238, 0.4);
-  font-size: 0.7rem;
 }
 
 .button {
@@ -31,6 +30,7 @@
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   border: none;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -44,11 +44,11 @@
 
 .error-text {
   font-size: 0.9rem;
-  margin-top: 0;
+  margin-top: 0.5rem;
   font-weight: bolder;
   text-align: left;
   margin-left: 2rem;
-  color: rgb(216, 70, 70);
+  color: rgb(247, 242, 242);
 }
 
 @media screen and (min-width: 480px) {
