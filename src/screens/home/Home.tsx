@@ -9,7 +9,7 @@ import HeroCard from "../../components/Hero/HeroCard";
 import Hero from "../../models/Hero";
 import "./index.css";
 
-const HomeView: React.FC = () => {
+const Home: React.FC = () => {
   const {
     heroes,
     setHeroes,
@@ -23,6 +23,12 @@ const HomeView: React.FC = () => {
   const history = useHistory();
 
   const { powerstats, averageWeight, averageHeight, sortedArray } = usePowerStats(heroes);
+
+  React.useEffect(() => {
+    setFilter("all");
+    setSearchResult([]);
+    setSearchText("");
+  }, []);
 
   const handleAddClick = () => {
     setFilter("all");
@@ -49,7 +55,7 @@ const HomeView: React.FC = () => {
           data-aos-delay="200"
           data-aos-duration="2000"
         >
-          <h1 className="title text-white fw-bolder text-uppercase">Super Heroes</h1>
+          <h1 className="title text-white fw-bolder text-uppercase">Superheros</h1>
 
           {heroes.length && (
             <div>
@@ -93,4 +99,4 @@ const HomeView: React.FC = () => {
   );
 };
 
-export default HomeView;
+export default Home;

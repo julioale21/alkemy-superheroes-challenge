@@ -1,16 +1,16 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import useHeroDetail from "./useHeroDetail";
+import useHeroDetail from "./useHero";
 import Connections from "../../components/Hero/PowerStatsItems/Connections";
 import Appearance from "../../components/Hero/PowerStatsItems/Appearance";
 import PowerStats from "../../components/Hero/PowerStatsItems/Powerstats";
 import BtnRounded from "../../components/shared/BtnRounded";
 import Biography from "../../components/Hero/PowerStatsItems/Biography";
-import bgImage from "../../assets/bg-12.jpg";
+import bgImage from "../../assets/bg-4.jpg";
 import Work from "../../components/Hero/PowerStatsItems/Work";
 import "./index.css";
 
-const HeroDetailView: React.FC = () => {
+const Detail: React.FC = () => {
   const { selectedHero, exists, addHero, handleCancel } = useHeroDetail();
 
   return (
@@ -57,4 +57,4 @@ const HeroDetailView: React.FC = () => {
   );
 };
 
-export default HeroDetailView;
+export default Detail;

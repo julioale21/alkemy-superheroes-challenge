@@ -1,9 +1,9 @@
-import { HeroService } from "../../services/HeroServise";
-import { useState } from "react";
-import Hero from "../../models/Hero";
-import React from "react";
+import React, { useState } from "react";
+import { HeroContext } from "./Context/HeroContext";
+import Hero from "./models/Hero";
+import { HeroService } from "./services/HeroServise";
 
-const useHeroes = () => {
+const HeroState: React.FC = ({ children }) => {
   const initialState = {
     selectedHero: {} as Hero,
     heroes: HeroService.getHeroes("heroes"),
@@ -34,18 +34,24 @@ const useHeroes = () => {
     HeroService.setItem("searchText", searchText);
   }, [searchText]);
 
-  return {
-    heroes,
-    selectedHero,
-    searchText,
-    searchResult,
-    filter,
-    setSelectedHero,
-    setHeroes,
-    setSearchText,
-    setSearchResult,
-    setFilter,
-  };
+  return (
+    <HeroContext.Provider
+      value={{
+        selectedHero,
+        setSelectedHero,
+        heroes,
+        setHeroes,
+        searchText,
+        setSearchText,
+        searchResult,
+        setSearchResult,
+        filter,
+        setFilter,
+      }}
+    >
+      {children}
+    </HeroContext.Provider>
+  );
 };
 
-export default useHeroes;
+export default HeroState;

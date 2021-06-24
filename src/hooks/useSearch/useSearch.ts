@@ -52,7 +52,7 @@ const useSearch = () => {
 
   const handleSelectedHero = (hero: Hero) => {
     setSelectedHero(hero);
-    history.push("/detail");
+    history.push(`/hero/${hero.id}`);
   };
 
   const handleCheckButtonChanged = (e: React.FormEvent<HTMLInputElement>) => {

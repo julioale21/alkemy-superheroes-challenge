@@ -4,7 +4,7 @@ import HeroList from "../../components/Hero/HeroList";
 import bgImage from "../../assets/bg-search.jpg";
 import useSearch from "../../hooks/useSearch";
 
-const SearchView: React.FC = () => {
+const Search: React.FC = () => {
   const {
     filter,
     searchText,
@@ -36,4 +36,4 @@ const SearchView: React.FC = () => {
   );
 };
 
-export default SearchView;
+export default Search;

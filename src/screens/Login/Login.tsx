@@ -3,8 +3,8 @@ import LoginForm from "../../components/LoginForm";
 import backgroundImg from "../../assets/super-background.jpg";
 import useSession from "../../hooks/useSession";
 
-const LoginView: React.FC = () => {
-  const { error, loginUser } = useSession();
+const Login: React.FC = () => {
+  const { error, loginUser, loading } = useSession();
 
   return (
     <div
@@ -15,9 +15,9 @@ const LoginView: React.FC = () => {
         height: "100vh",
       }}
     >
-      <LoginForm error={error} login={loginUser} />
+      <LoginForm error={error} loading={loading} login={loginUser} />
     </div>
   );
 };
 
-export default LoginView;
+export default Login;
