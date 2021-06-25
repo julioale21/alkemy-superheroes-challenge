@@ -1,16 +1,24 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
-import useHeroDetail from "./useHero";
+import { Redirect, useHistory } from "react-router-dom";
+import { HeroContext } from "../../Context/HeroContext";
 import Connections from "../../components/Hero/PowerStatsItems/Connections";
 import Appearance from "../../components/Hero/PowerStatsItems/Appearance";
 import PowerStats from "../../components/Hero/PowerStatsItems/Powerstats";
 import BtnRounded from "../../components/shared/BtnRounded";
 import Biography from "../../components/Hero/PowerStatsItems/Biography";
+import useHero from "../../hooks/useHero";
 import Work from "../../components/Hero/PowerStatsItems/Work";
 import "./index.css";
 
 const Detail: React.FC = () => {
-  const { selectedHero, exists, addNewHero, handleCancel } = useHeroDetail();
+  const { selectedHero } = React.useContext(HeroContext);
+  const { exists, addNewHero, removeSelectedHero } = useHero();
+  const history = useHistory();
+
+  const handleCancelSelected = () => {
+    removeSelectedHero();
+    history.push("/search");
+  };
 
   return (
     <div className="detail-section min-vh-100 d-flex justify-content-center align-items-center">
@@ -37,7 +45,7 @@ const Detail: React.FC = () => {
                   Ok
                 </BtnRounded>
 
-                <BtnRounded type="danger" onBtnClick={handleCancel}>
+                <BtnRounded type="danger" onBtnClick={handleCancelSelected}>
                   Cancel
                 </BtnRounded>
               </div>
