@@ -4,8 +4,8 @@ import { HeroContext } from "../../Context/HeroContext";
 import { useToasts } from "react-toast-notifications";
 import Hero from "../../models/Hero";
 
-const useHeroDetail = () => {
-  const { selectedHero, setSelectedHero, heros, addHeros } = React.useContext(HeroContext);
+const useHero = () => {
+  const { selectedHero, heros, addHeros, setSelectedHero } = React.useContext(HeroContext);
   const history = useHistory();
   const { addToast } = useToasts();
 
@@ -39,12 +39,19 @@ const useHeroDetail = () => {
     }
   };
 
-  const handleCancel = () => {
+  const removeSelectedHero = () => {
     setSelectedHero({} as Hero);
-    history.push("/search");
   };
 
-  return { selectedHero, exists, addNewHero, handleCancel };
+  const removeHero = (hero: Hero) => {
+    addHeros(heros.filter((item) => item.id !== hero.id));
+  };
+
+  const addSelectedHero = (hero: Hero) => {
+    setSelectedHero(hero);
+  };
+
+  return { exists, addNewHero, removeSelectedHero, removeHero, addSelectedHero };
 };
 
-export default useHeroDetail;
+export default useHero;
