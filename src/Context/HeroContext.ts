@@ -1,4 +1,4 @@
-import { HeroContextState } from "../types/HeroContextState";
+import { HeroContextState } from "./HeroContextState";
 import { createContext } from "react";
 import Hero from "../models/Hero";
 import { HeroService } from "../services/HeroServise";

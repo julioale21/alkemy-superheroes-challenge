@@ -1,6 +1,6 @@
 import React from "react";
 import LoginForm from "../../components/LoginForm";
-import backgroundImg from "../../assets/super-background.jpg";
+import backgroundImg from "../../assets/bg-14.jpg";
 import useSession from "../../hooks/useSession";
 
 const Login: React.FC = () => {
@@ -11,7 +11,7 @@ const Login: React.FC = () => {
       className="mh-100 d-flex justify-content-center align-items-center"
       style={{
         backgroundImage: `url(${backgroundImg})`,
-        backgroundSize: "contain",
+        backgroundSize: "cover",
         height: "100vh",
       }}
     >

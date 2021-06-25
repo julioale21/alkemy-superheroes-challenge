@@ -11,7 +11,11 @@ const BtnSpinner: React.FC<Props> = ({ color, className, loading = false, childr
   return (
     <button className={`btn-${color} ${className} mt-4 fs-5`} type="submit">
       {loading && (
-        <span aria-hidden="true" className="spinner-border spinner-border-sm" role="status"></span>
+        <span
+          aria-hidden="true"
+          className="spinner-border spinner-border-sm me-2"
+          role="status"
+        ></span>
       )}
       {loading ? "Loading..." : children}
     </button>

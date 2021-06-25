@@ -16,7 +16,7 @@ const HeroDetail: React.FC<DetailProps> = ({ hero, onClose }) => {
           <CloseBtnCircular onButtonPressed={onClose} />
         </div>
         <div className="d-flex justify-content-center align-items-center mx-2">
-          <img alt={hero.name} src={hero.image.url} style={{ maxHeight: "350px" }} />
+          <img alt={hero.name} src={hero.image.url} style={{ maxHeight: "300px" }} />
         </div>
         <div className="container d-flex flex-column align-items-center p-5 pt-3 pe-3 text-white">
           <h1 className="text-white">{hero.name}</h1>

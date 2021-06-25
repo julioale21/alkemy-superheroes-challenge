@@ -1,5 +1,4 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { HeroContext } from "../../Context/HeroContext";
 import Hero from "../../models/Hero";
 import axios from "axios";
@@ -7,7 +6,6 @@ import axios from "axios";
 const searchUrl = import.meta.env.VITE_SEARCH_URL;
 
 const useSearch = () => {
-  const history = useHistory();
   const {
     filter,
     searchText,
@@ -50,11 +48,6 @@ const useSearch = () => {
     }
   };
 
-  const handleSelectedHero = (hero: Hero) => {
-    setSelectedHero(hero);
-    history.push(`/hero/${hero.id}`);
-  };
-
   const handleCheckButtonChanged = (e: React.FormEvent<HTMLInputElement>) => {
     changeFilter(e.currentTarget.value);
   };
@@ -67,7 +60,6 @@ const useSearch = () => {
     setSelectedHero,
     handleChange,
     handleSubmit,
-    handleSelectedHero,
     handleCheckButtonChanged,
   };
 };

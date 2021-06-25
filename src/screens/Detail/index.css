@@ -1,3 +1,7 @@
+.detail-section {
+  background-image: url("../../assets/bg-4.jpg");
+}
+
 .hero-full-info,
 .hero-short-info {
   background-color: rgba(0, 0, 0, 0.8);

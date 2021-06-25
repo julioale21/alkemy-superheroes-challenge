@@ -1,23 +1,27 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
-import useHeroDetail from "./useHero";
+import { Redirect, useHistory } from "react-router-dom";
+import { HeroContext } from "../../Context/HeroContext";
 import Connections from "../../components/Hero/PowerStatsItems/Connections";
 import Appearance from "../../components/Hero/PowerStatsItems/Appearance";
 import PowerStats from "../../components/Hero/PowerStatsItems/Powerstats";
 import BtnRounded from "../../components/shared/BtnRounded";
 import Biography from "../../components/Hero/PowerStatsItems/Biography";
-import bgImage from "../../assets/bg-4.jpg";
+import useHero from "../../hooks/useHero";
 import Work from "../../components/Hero/PowerStatsItems/Work";
 import "./index.css";
 
 const Detail: React.FC = () => {
-  const { selectedHero, exists, addNewHero, handleCancel } = useHeroDetail();
+  const { selectedHero } = React.useContext(HeroContext);
+  const { exists, addNewHero, removeSelectedHero } = useHero();
+  const history = useHistory();
+
+  const handleCancelSelected = () => {
+    removeSelectedHero();
+    history.push("/search");
+  };
 
   return (
-    <div
-      className="min-vh-100 d-flex justify-content-center align-items-center"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
+    <div className="detail-section min-vh-100 d-flex justify-content-center align-items-center">
       {Object.entries(selectedHero).length > 0 ? (
         <div className="row d-flex justify-content-center align-items-center py-5 mt-5">
           <div className="hero-short-info col-11 col-sm-8 col-md-6 col-lg-3 col-xl-4 m-0 h-100 fw-bolder p-3 mx-3 text-white">
@@ -41,7 +45,7 @@ const Detail: React.FC = () => {
                   Ok
                 </BtnRounded>
 
-                <BtnRounded type="danger" onBtnClick={handleCancel}>
+                <BtnRounded type="danger" onBtnClick={handleCancelSelected}>
                   Cancel
                 </BtnRounded>
               </div>
