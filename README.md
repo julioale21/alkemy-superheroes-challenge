@@ -61,6 +61,38 @@ The Home of the application will show the team members in a list on a grid. Each
   - Hero name.
   - Name
   - Powerstats.
-● Acciones para ver el detalle o eliminarlo del equipo.
+  - Actions to view the detail or remove it from the team.
+
+#### 3. Heros search
+To add a hero to your team, you will need to display a form that makes a GET request to the search endpoint and display the available results in a grid. Those results should
+show:
+
+  - Hero name.
+  - Hero image.
+  - Actions to add a hero to your team
+
+Form validations must be performed using the Formik library.
+
+#### 4. Hero Detail
+Clicking on a team hero will display the details listed on the endpoint. From them,show: 
+
+  - height, 
+  - full name, 
+  - aliases, 
+  - eye color,
+  - hair color, 
+  - workplace.
+
+### Tests
+Optionally, unit tests can be added to validate the elements of the app:
+- Authenticated user verification when entering a route.
+- Field validation in login or search form submit.
+- Handling exceptions when getting API errors.
+
+For the implementation of the tests, Jest and React Testing Library libraries should be used.
+
+
+
+
   
   
