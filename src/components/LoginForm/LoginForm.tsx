@@ -34,10 +34,10 @@ const LoginForm: React.FC<LoginProps> = ({ login, error, loading }) => {
     >
       <input
         autoComplete="off"
-        className={`input mx-2 py-3 ${formik.errors.email && "error-input"}`}
+        className={`input mx-2 py-3 ${formik.errors.email ? "mb-0" : "mb-3"}`}
         id="email"
         placeholder="Enter your email"
-        type="email"
+        type="text"
         value={formik.values.email}
         onChange={formik.handleChange}
       />
@@ -46,7 +46,7 @@ const LoginForm: React.FC<LoginProps> = ({ login, error, loading }) => {
       ) : null}
 
       <input
-        className={`input mt-2 py-3 mx-2 ${formik.errors.password && "error-input"}`}
+        className={`input mt-2 py-3 mx-2`}
         id="password"
         placeholder="Enter your password"
         type="password"
@@ -73,8 +73,6 @@ const LoginForm: React.FC<LoginProps> = ({ login, error, loading }) => {
           ></button>
         </div>
       )}
-
-      {/* {error && <p className="mt-3 text-danger">{error}</p>} */}
     </form>
   );
 };
