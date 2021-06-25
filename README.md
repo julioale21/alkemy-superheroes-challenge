@@ -1,0 +1,66 @@
+
+<p align="center">
+    <img height="100" width="150" src="https://www.alkemy.org/assets/images/logo-header.png">
+   </p>
+   
+   ![GitHub package.json version](https://img.shields.io/github/package-json/v/julioale21/CountDown-FrontendMentorChallenge)
+   ![GitHub language count](https://img.shields.io/github/languages/count/julioale21/CountDown-FrontendMentorChallenge)
+   ![GitHub top language](https://img.shields.io/github/languages/top/julioale21/CountDown-FrontendMentorChallenge)
+   
+
+   <h1 align="center">Superheros App - Alkemy Challenge</h1>
+
+  
+## The challenge
+
+Develop an application to create a team of superheroes that will consume an external API and
+it will show different attributes at the individual level of each member and of the consolidated team.
+
+👉 Consume the endpoints of the following API to perform the different operations. You shall
+authenticate with Facebook to make requests to it.
+
+👉 Additionally, the different sections that the app will have must be protected by verifying that the
+authenticated user has a token that will be stored in localStorage. 
+It will be obtained of an API with sample data. If a user tries to enter any route without being authenticated,
+he must be redirected to login
+
+👉 To handle HTTP requests, the Axios library must be used.
+
+👉 The site must be responsive, and use Bootstrap as a starting point to take advantage of the
+library features.
+
+### Functional requirements
+En la pantalla de Home se deberá mostrar, además de los miembros del equipo:
+  - Cumulative of powerstats, grouped by each one, that is: total sum of intelligence, strength, etc. of all individual team members.
+  - The most cumulative powerstat should appear above to categorize the type equipment (intelligence, strength, etc.).
+  - Average team height and weights.
+  - The team must have 6 members. There should be 3 members with good orientation and 3 with bad orientation. This needs to be validated when trying to add a new hero.
+  - It should be possible to remove a member of the team, which will generate a new average of weight, cumulative of powerstats, etc.
+
+### Technical requirements
+Taking advantage of React's features, the following sections should be created in reusable components.
+
+#### 1. Login Form
+The form must be rendered when entering any path if the user is not authenticated, containing the fields:
+  - Email.
+  - Password.
+  - Send Button.
+
+By clicking on "Send", you must validate that both fields are not empty, and display a message to the user if they were. 
+Otherwise, a POST request must be made to the following url, with the email and password fields in the body.
+
+The valid data to obtain a token are:
+  - Email: challenge@alkemy.org
+  - Password: react
+  
+In the case of getting an error from the API, an alert should be displayed, while if it is successful you will need to redirect to Home and store the obtained token in localStorage.
+Form validations must be carried out using the Formik library
+
+#### 2. Team
+The Home of the application will show the team members in a list on a grid. Each item of the listing will contain:
+  - Hero name.
+  - Name
+  - Powerstats.
+● Acciones para ver el detalle o eliminarlo del equipo.
+  
+  
