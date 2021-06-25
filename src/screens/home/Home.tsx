@@ -1,9 +1,11 @@
 import React from "react";
-import { HeroContext } from "../../Context/HeroContext";
+import { HeroContext } from "../../context/HeroContext";
 import { useHistory } from "react-router-dom";
 import PowerStatCounter from "../../components/Hero/PowerStatsItems/PowerStatCounter";
 import usePowerStats from "../../hooks/usePowerStats";
 import AddHeroCard from "../../components/Hero/AddHeroCard";
+import WelcomeCard from "../../components/Home/WelcomeCard";
+import AverageList from "../../components/Home/AverageList";
 import HeroDetail from "../../components/Hero/HeroDetail";
 import HeroCard from "../../components/Hero/HeroCard";
 import Hero from "../../models/Hero";
@@ -12,17 +14,16 @@ import "./index.css";
 const Home: React.FC = () => {
   const {
     heros,
-    addHeros,
     selectedHero,
+    addHeros,
+    changeFilter,
     setSelectedHero,
     updateSearchResult,
     updateSearchValue,
-    changeFilter,
   } = React.useContext(HeroContext);
   const [modal, setModal] = React.useState(false);
-  const history = useHistory();
-
   const { powerstats, averageWeight, averageHeight, sortedPowerstats } = usePowerStats(heros);
+  const history = useHistory();
 
   React.useEffect(() => {
     changeFilter("all");
@@ -30,6 +31,11 @@ const Home: React.FC = () => {
     updateSearchValue("");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const averages = [
+    { name: "Average Weight", value: `${averageWeight.toFixed(2)} kg` },
+    { name: "Average Height", value: `${averageHeight.toFixed(2)} cm` },
+  ];
 
   const handleAddClick = () => {
     changeFilter("all");
@@ -66,33 +72,10 @@ const Home: React.FC = () => {
                   <PowerStatCounter key={key} name={key} value={powerstats[key]} />
                 ))}
               </div>
-              <div className="averages w-100 d-flex flex-row justify-content-around">
-                <div data-aos="fade-up">
-                  <p className="fs-4 m-0 text-white">{averageWeight.toFixed(2)} Kg</p>
-                  <p className="text-sm m-0 text-white">Average Weight</p>
-                </div>
-                <div data-aos="fade-up">
-                  <p className="fs-4 m-0 text-white">{averageHeight.toFixed(2)} cm</p>
-                  <p className="text-sm m-0 text-white">Average height</p>
-                </div>
-              </div>
+              <AverageList averages={averages} />
             </div>
           ) : (
-            <div className="welcome text-white">
-              <h3 className="welcome-title">Welcome to Alkemy Challenge!</h3>
-              <p className="text-sm">
-                Solved by{" "}
-                <a
-                  href="https://github.com/julioale21"
-                  rel="no-opener noreferrer"
-                  style={{ color: "inherit" }}
-                  target="_blank"
-                >
-                  @JulioRomero
-                </a>
-              </p>
-              <a className="btn-start px-4 py-2" href="#team-section">{`Let's start!`}</a>
-            </div>
+            <WelcomeCard />
           )}
         </div>
       </div>
