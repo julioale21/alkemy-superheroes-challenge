@@ -6,7 +6,6 @@ import Appearance from "../../components/Hero/PowerStatsItems/Appearance";
 import PowerStats from "../../components/Hero/PowerStatsItems/Powerstats";
 import BtnRounded from "../../components/shared/BtnRounded";
 import Biography from "../../components/Hero/PowerStatsItems/Biography";
-import bgImage from "../../assets/bg-4.jpg";
 import Work from "../../components/Hero/PowerStatsItems/Work";
 import "./index.css";
 
@@ -14,10 +13,7 @@ const Detail: React.FC = () => {
   const { selectedHero, exists, addNewHero, handleCancel } = useHeroDetail();
 
   return (
-    <div
-      className="min-vh-100 d-flex justify-content-center align-items-center"
-      style={{ backgroundImage: `url(${bgImage})` }}
-    >
+    <div className="detail-section min-vh-100 d-flex justify-content-center align-items-center">
       {Object.entries(selectedHero).length > 0 ? (
         <div className="row d-flex justify-content-center align-items-center py-5 mt-5">
           <div className="hero-short-info col-11 col-sm-8 col-md-6 col-lg-3 col-xl-4 m-0 h-100 fw-bolder p-3 mx-3 text-white">

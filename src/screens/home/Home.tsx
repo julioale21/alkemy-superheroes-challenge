@@ -1,5 +1,5 @@
 import React from "react";
-import { HeroContext } from "../../context/HeroContext";
+import { HeroContext } from "../../Context/HeroContext";
 import { useHistory } from "react-router-dom";
 import PowerStatCounter from "../../components/Hero/PowerStatsItems/PowerStatCounter";
 import usePowerStats from "../../hooks/usePowerStats";
