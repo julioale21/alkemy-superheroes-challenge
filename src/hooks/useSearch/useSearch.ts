@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { HeroContext } from "../../Context/HeroContext";
+import { HeroContext } from "../../context/HeroContext";
 import Hero from "../../models/Hero";
 import axios from "axios";
 
