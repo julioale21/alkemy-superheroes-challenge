@@ -22,7 +22,7 @@ const Home: React.FC = () => {
   const [modal, setModal] = React.useState(false);
   const history = useHistory();
 
-  const { powerstats, averageWeight, averageHeight, sortedArray } = usePowerStats(heros);
+  const { powerstats, averageWeight, averageHeight, sortedPowerstats } = usePowerStats(heros);
 
   React.useEffect(() => {
     changeFilter("all");
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
             <div>
               <h3 className="text-white mb-4 fw-bolder">Team Powerstats</h3>
               <div className="powerstats row">
-                {Object.keys(sortedArray).map((key) => (
+                {Object.keys(sortedPowerstats).map((key) => (
                   <PowerStatCounter key={key} name={key} value={powerstats[key]} />
                 ))}
               </div>

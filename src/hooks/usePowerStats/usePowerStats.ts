@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import Powerstats from "../../interfaces/PowerStatsInterface";
+import Powerstats from "../../models/Popwerstats";
 import Hero from "../../models/Hero";
 
 const usePowerStats = (heros: Hero[]) => {
@@ -40,7 +40,7 @@ const usePowerStats = (heros: Hero[]) => {
     return result;
   }, [heros]);
 
-  const sortedArray = useMemo(() => {
+  const sortedPowerstats = useMemo(() => {
     return Object.entries(powerstats)
       .sort(([, a], [, b]) => b - a)
       .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
@@ -70,7 +70,7 @@ const usePowerStats = (heros: Hero[]) => {
     return Number(totalHeight) / heros.length;
   }, [heros]);
 
-  return { powerstats, sortedArray, averageWeight, averageHeight };
+  return { powerstats, sortedPowerstats, averageWeight, averageHeight };
 };
 
 export default usePowerStats;
