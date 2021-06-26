@@ -5,8 +5,8 @@ import { HeroService } from "../services/HeroServise";
 
 export const contextDefaultValues: HeroContextState = {
   selectedHero: {} as Hero,
-  heros: HeroService.getHeros("heros"),
-  searchResult: HeroService.getHeros("searchResult"),
+  heros: HeroService.getHeros("heros") || [],
+  searchResult: HeroService.getHeros("searchResult") || [],
   filter: HeroService.getItem("filter") || "all",
   searchText: HeroService.getItem("searchText") || "",
   setSelectedHero: () => {},
