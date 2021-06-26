@@ -39,7 +39,13 @@ const Search: React.FC = () => {
         />
 
         {!loading ? (
-          <HeroList heros={searchResult} onHeroSelected={handleSelectedHero} />
+          <div>
+            {Object.entries(searchResult).length > 0 ? (
+              <HeroList heros={searchResult} onHeroSelected={handleSelectedHero} />
+            ) : (
+              <p className="text-white mt-5 pt-5">Not match found</p>
+            )}
+          </div>
         ) : (
           <div className="mt-5 pt-5">
             <Spinner color="warning" />

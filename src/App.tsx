@@ -6,7 +6,7 @@ import Search from "./screens/Search";
 import Home from "./screens/home";
 import AppLayout from "./components/AppLayout";
 import useSession from "./hooks/useSession";
-import HeroState from "./Context/HeroContextProvider";
+import HeroContextProvider from "./Context/HeroContextProvider";
 import "./App.css";
 
 const App: React.FC = () => {
@@ -14,7 +14,7 @@ const App: React.FC = () => {
   const token = getToken();
 
   return (
-    <HeroState>
+    <HeroContextProvider>
       <Router>
         {!token && <Redirect to="/login" />}
         <Switch>
@@ -37,7 +37,7 @@ const App: React.FC = () => {
           </Route>
         </Switch>
       </Router>
-    </HeroState>
+    </HeroContextProvider>
   );
 };
 

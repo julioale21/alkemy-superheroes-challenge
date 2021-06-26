@@ -27,6 +27,8 @@ const useSearch = () => {
     const data: Hero[] = response.data.results;
 
     if (!data) {
+      setLoading(false);
+
       return;
     }
     const filteredHeros = data.filter((hero) => {

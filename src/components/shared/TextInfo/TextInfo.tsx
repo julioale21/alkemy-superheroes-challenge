@@ -18,7 +18,7 @@ const TextInfo: React.FC<TextInfoProps> = ({
     <div>
       <p className={`text-${textAlign} ${textSm && "text-sm"}`}>
         <span className={`text-${titleColor} fw-bolder me-3 text-capitalize`}>{title}:</span>
-        {value.toString()}
+        {`${value}`}
       </p>
     </div>
   );
