@@ -18,9 +18,12 @@ const SearchForm: React.FC<FormProps> = ({
   value,
 }) => {
   return (
-    <form className="form-search" onSubmit={(e) => onFormSubmit(e)}>
-      <div className="row">
-        <div className="mb-4">
+    <form
+      className="form-search d-flex flex-column align-items-center"
+      onSubmit={(e) => onFormSubmit(e)}
+    >
+      <div className="row w-100">
+        <div className="mb-4 text-center">
           <img alt="search" src={searchLogo} width="160px" />
         </div>
         <div className="col-10 col-md-4 mx-auto">

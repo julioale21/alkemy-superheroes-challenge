@@ -28,7 +28,7 @@ const Search: React.FC = () => {
   };
 
   return (
-    <div className="search-section h-100 min-vh-100 overflow-hidden d-flex flex-column justify-content-start pb-5">
+    <div className="search-section h-100 min-vh-100 overflow-hidden d-flex flex-column justify-content-start  pb-5">
       <div className="h-100 mt-5 pt-5">
         <SearchForm
           checkValue={filter}
@@ -39,7 +39,7 @@ const Search: React.FC = () => {
         />
 
         {!loading ? (
-          <div>
+          <div className="d-flex flex-column align-items-center">
             {Object.entries(searchResult).length > 0 ? (
               <HeroList heros={searchResult} onHeroSelected={handleSelectedHero} />
             ) : (
