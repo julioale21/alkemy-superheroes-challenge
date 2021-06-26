@@ -9,15 +9,8 @@ import "./index.css";
 import Spinner from "../../components/shared/Spinner";
 
 const Search: React.FC = () => {
-  const {
-    filter,
-    searchText,
-    loading,
-    searchResult,
-    handleCheckButtonChanged,
-    handleSubmit,
-    handleChange,
-  } = useSearch();
+  const { filter, searchText, loading, searchResult, handleSubmit, handleCheckButtonChanged } =
+    useSearch();
 
   const { addSelectedHero } = useHero();
   const history = useHistory();
@@ -34,8 +27,7 @@ const Search: React.FC = () => {
           checkValue={filter}
           value={searchText}
           onCheckButtonChanged={handleCheckButtonChanged}
-          onFormSubmit={(e) => handleSubmit(e)}
-          onInputChange={(e) => handleChange(e)}
+          onFormSubmit={(value) => handleSubmit(value)}
         />
 
         {!loading ? (

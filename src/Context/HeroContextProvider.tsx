@@ -22,12 +22,12 @@ const HeroContextProvider: React.FC = ({ children }) => {
   };
 
   const updateSearchValue = (newValue: string) => {
-    HeroService.setItem("searchText", searchText);
+    HeroService.setItem("searchText", newValue);
     setSearchText(newValue);
   };
 
   const updateSearchResult = (newValue: Hero[]) => {
-    HeroService.setHeros("searchResult", searchResult);
+    HeroService.setHeros("searchResult", newValue);
     setSearchResult(newValue);
   };
 

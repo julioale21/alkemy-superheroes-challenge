@@ -1,41 +1,58 @@
 import React from "react";
 import InlineRadioButton from "../shared/InlineRadioButton";
 import searchLogo from "../../assets/search2.png";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 interface FormProps {
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onFormSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onFormSubmit: (value: string) => void;
   onCheckButtonChanged: (e: React.FormEvent<HTMLInputElement>) => void;
   checkValue: string;
   value: string;
 }
 
 const SearchForm: React.FC<FormProps> = ({
-  onInputChange,
   onFormSubmit,
   onCheckButtonChanged,
   checkValue,
   value,
 }) => {
+  const formik = useFormik({
+    initialValues: {
+      searchText: value,
+    },
+    validationSchema: Yup.object({
+      searchText: Yup.string().required("Field is required"),
+    }),
+    onSubmit: (value) => {
+      onFormSubmit(value.searchText);
+    },
+  });
+
   return (
     <form
       className="form-search d-flex flex-column align-items-center"
-      onSubmit={(e) => onFormSubmit(e)}
+      onSubmit={formik.handleSubmit}
     >
       <div className="row w-100">
         <div className="mb-4 text-center">
           <img alt="search" src={searchLogo} width="160px" />
         </div>
         <div className="col-10 col-md-4 mx-auto">
+          {formik.touched.searchText && formik.errors.searchText ? (
+            <p className="error-text text-left mb-0 mx-0">{formik.errors.searchText}</p>
+          ) : null}
           <div className="input-group input-group-lg">
             <input
               aria-describedby="inputGroup-sizing-lg"
               aria-label="Sizing example input"
+              autoComplete="off"
               className="form-control"
+              id="searchText"
               placeholder="Search your hero"
               type="text"
-              value={value}
-              onChange={onInputChange}
+              value={formik.values.searchText}
+              onChange={formik.handleChange}
             />
           </div>
 
@@ -61,7 +78,10 @@ const SearchForm: React.FC<FormProps> = ({
           />
         </div>
       </div>
-      <button className="btn btn-warning mt-3">Buscar</button>
+
+      <button className="btn btn-warning mt-3" type="submit">
+        Buscar
+      </button>
     </form>
   );
 };

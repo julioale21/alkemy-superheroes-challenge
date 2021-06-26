@@ -18,12 +18,12 @@ const useSearch = () => {
 
   const [loading, setLoading] = React.useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (value: string) => {
     setLoading(true);
+    updateSearchValue(value);
     updateSearchResult([]);
 
-    const response = await axios.get(searchUrl + searchText);
+    const response = await axios.get(searchUrl + value);
     const data: Hero[] = response.data.results;
 
     if (!data) {
@@ -43,13 +43,6 @@ const useSearch = () => {
     setLoading(false);
   };
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    updateSearchValue(e.currentTarget.value);
-    if (e.currentTarget.value === "") {
-      updateSearchResult([]);
-    }
-  };
-
   const handleCheckButtonChanged = (e: React.FormEvent<HTMLInputElement>) => {
     changeFilter(e.currentTarget.value);
   };
@@ -60,7 +53,6 @@ const useSearch = () => {
     filter,
     searchResult,
     setSelectedHero,
-    handleChange,
     handleSubmit,
     handleCheckButtonChanged,
   };
