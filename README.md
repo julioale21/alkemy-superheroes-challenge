@@ -1,7 +1,10 @@
 
 <p align="center">
-    <img height="100" width="150" src="https://www.alkemy.org/assets/images/logo-header.png">
+    <img height="100" src="https://www.alkemy.org/assets/images/logo-header.png">
    </p>
+   
+   
+   
    
    ![GitHub package.json version](https://img.shields.io/github/package-json/v/julioale21/CountDown-FrontendMentorChallenge)
    ![GitHub language count](https://img.shields.io/github/languages/count/julioale21/CountDown-FrontendMentorChallenge)
@@ -30,7 +33,7 @@ he must be redirected to login
 library features.
 
 ### Functional requirements
-En la pantalla de Home se deberá mostrar, además de los miembros del equipo:
+The Home screen should show, in addition to the team members:
   - Cumulative of powerstats, grouped by each one, that is: total sum of intelligence, strength, etc. of all individual team members.
   - The most cumulative powerstat should appear above to categorize the type equipment (intelligence, strength, etc.).
   - Average team height and weights.
@@ -91,8 +94,53 @@ Optionally, unit tests can be added to validate the elements of the app:
 
 For the implementation of the tests, Jest and React Testing Library libraries should be used.
 
+### Criteria to evaluate
+- Responsive, modern and intuitive design.
+- You must use Bootstrap to allow the project to be responsive, and media queries for the custom elements that are developed.
+- Basic knowledge of React.
+- Form validation using the Formik library.
+- Good coding practices.
+- Good practices for route names.
+- Modularized code in reusable and independent components.
+
+
+## Project
+## Demo
+[demo]()
+
+## Project
+
+### Tools
+
+- React.js
+- Vite.js
+- Bootstrap
+- Formik
+- Yup
+- AOS animation
+- React-toats-notification
+- React-countup
+- Axios
+
+### Project Structure
+The files are structured as follow:
+
+    .
+    ├── public              # Static Files
+    ├── src
+        ├── assets          # App resources like images
+        ├── components      # Stateless components
+        ├── Context         # Global state  
+        ├── models          # Entities
+        ├── screens         # Pages that make up the app 
+        ├── services        # Set of software functionalities that different clients can reuse for different purposes
+        ├── types           # custom types
+        App.css
+        App.tsx
+        main.tsx
+
+    └── README.md            # The first page that the user will view when will visit the repository.
 
 
 
-  
   
