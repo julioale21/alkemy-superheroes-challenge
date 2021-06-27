@@ -1,17 +1,26 @@
+<br/><br/>
+<br/><br/>
 
 <p align="center">
     <img height="100" src="https://www.alkemy.org/assets/images/logo-header.png">
    </p>
    
    
+   <br/><br/>
+    
    
+   ![GitHub package.json version](https://img.shields.io/github/package-json/v/julioale21/alkemy-superheroes-challenge?color=blue)
+   ![GitHub language count](https://img.shields.io/github/languages/count/julioale21/alkemy-superheroes-challenge?color=blue)
+   ![GitHub top language](https://img.shields.io/github/languages/top/julioale21/alkemy-superheroes-challenge)
+ 
    
-   ![GitHub package.json version](https://img.shields.io/github/package-json/v/julioale21/CountDown-FrontendMentorChallenge)
-   ![GitHub language count](https://img.shields.io/github/languages/count/julioale21/CountDown-FrontendMentorChallenge)
-   ![GitHub top language](https://img.shields.io/github/languages/top/julioale21/CountDown-FrontendMentorChallenge)
+   <br/><br/>
    
 
    <h1 align="center">Superheros App - Alkemy Challenge</h1>
+   
+   
+### [📖 Go to CHANGELOG.md to see the changelog](CHANGELOG.md)
 
   
 ## The challenge
@@ -104,9 +113,18 @@ For the implementation of the tests, Jest and React Testing Library libraries sh
 - Modularized code in reusable and independent components.
 
 
-## Project
 ## Demo
-[demo]()
+[https://alkemy-superheroes-challenge-5os7z4jsx-julioale21.vercel.app/home](https://alkemy-superheroes-challenge-5os7z4jsx-julioale21.vercel.app/home).
+
+To be able to do login on demo you must allow cors in your browser and configure the site as secure.
+
+Go padlock in url box
+
+Go to site configuration.
+
+Go to unsafe content
+
+Check allow option.
 
 ## Project
 
@@ -121,6 +139,7 @@ For the implementation of the tests, Jest and React Testing Library libraries sh
 - React-toats-notification
 - React-countup
 - Axios
+- Release-it
 
 ### Project Structure
 The files are structured as follow:
@@ -138,9 +157,16 @@ The files are structured as follow:
         App.css
         App.tsx
         main.tsx
-
+    ├── CONTRIBUTING.md      # Document the conventions used in this project.
     └── README.md            # The first page that the user will view when will visit the repository.
 
+## Requirements
+* npm or yarn
+* Git
 
+## Local deployment
 
+* Clone repository.
+* Execute the command `npm install`
+* Execute the command `npm run dev`
   
