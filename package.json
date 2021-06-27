@@ -6,7 +6,8 @@
     "serve": "vite preview",
     "test": "jest",
     "preview": "vite preview --port 8080",
-    "a": "npm run build && npm run preview"
+    "a": "npm run build && npm run preview",
+    "release": "release-it"
   },
   "dependencies": {
     "@types/aos": "^3.0.3",
@@ -27,6 +28,7 @@
     "@babel/preset-env": "^7.14.5",
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.14.5",
+    "@release-it/conventional-changelog": "^3.0.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@types/jest": "^26.0.23",
@@ -48,6 +50,7 @@
     "jest": "^27.0.4",
     "prettier": "^2.3.1",
     "react-test-renderer": "^17.0.2",
+    "release-it": "^14.10.0",
     "ts-jest": "^27.0.3",
     "typescript": "^4.3.2",
     "vite": "^2.3.7"
