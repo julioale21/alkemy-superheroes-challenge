@@ -169,4 +169,5 @@ The files are structured as follow:
 * Clone repository.
 * Execute the command `npm install`
 * Execute the command `npm run dev`
+* add .env file and the current variable VITE_SEARCH_URL=https://superheroapi.com/api/10222145357517937/search/
   
